@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ci-shang.github.io/Pyfhel/Pyfhel%E5%AD%A6%E4%B9%A0%EF%BC%9ABFV%E6%95%B4%E6%95%B0%E5%8A%A0%E5%AF%86/</loc>
+    
+    <lastmod>2024-07-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://ci-shang.github.io/categories/index.html</loc>
     
     <lastmod>2024-07-04</lastmod>
@@ -55,6 +64,13 @@
   
   <url>
     <loc>http://ci-shang.github.io/tags/Pyfhel/</loc>
+    <lastmod>2024-07-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ci-shang.github.io/tags/BFV/</loc>
     <lastmod>2024-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
