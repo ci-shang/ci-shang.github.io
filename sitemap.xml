@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://ci-shang.github.io/Pyfhel/Pyfhel%E5%AD%A6%E4%B9%A0%EF%BC%9ABFV%E6%95%B4%E6%95%B0%E5%8A%A0%E5%AF%86/</loc>
+    <loc>https://ci-shang.github.io/Pyfhel/Pyfhel%E5%AD%A6%E4%B9%A0%EF%BC%9ABFV%E6%95%B4%E6%95%B0%E5%8A%A0%E5%AF%86/</loc>
     
     <lastmod>2024-07-08</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://ci-shang.github.io/categories/index.html</loc>
+    <loc>https://ci-shang.github.io/categories/index.html</loc>
     
     <lastmod>2024-07-04</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://ci-shang.github.io/tags/index.html</loc>
+    <loc>https://ci-shang.github.io/tags/index.html</loc>
     
     <lastmod>2024-07-04</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>http://ci-shang.github.io/Pyfhel/Pyfhel%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/</loc>
+    <loc>https://ci-shang.github.io/Pyfhel/Pyfhel%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/</loc>
     
     <lastmod>2024-07-04</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>http://ci-shang.github.io/about/index.html</loc>
+    <loc>https://ci-shang.github.io/about/index.html</loc>
     
     <lastmod>2024-07-04</lastmod>
     
@@ -48,7 +48,7 @@
   
 
   <url>
-    <loc>http://ci-shang.github.io/</loc>
+    <loc>https://ci-shang.github.io/</loc>
     <lastmod>2024-07-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -56,21 +56,21 @@
 
   
   <url>
-    <loc>http://ci-shang.github.io/tags/Pyfhel/</loc>
+    <loc>https://ci-shang.github.io/tags/Pyfhel/</loc>
     <lastmod>2024-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://ci-shang.github.io/tags/BFV/</loc>
+    <loc>https://ci-shang.github.io/tags/BFV/</loc>
     <lastmod>2024-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://ci-shang.github.io/tags/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/</loc>
+    <loc>https://ci-shang.github.io/tags/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/</loc>
     <lastmod>2024-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -79,7 +79,7 @@
 
   
   <url>
-    <loc>http://ci-shang.github.io/categories/Pyfhel/</loc>
+    <loc>https://ci-shang.github.io/categories/Pyfhel/</loc>
     <lastmod>2024-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
