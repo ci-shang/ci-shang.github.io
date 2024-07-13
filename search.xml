@@ -1,58 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Pyfhel学习：BFV整数加密</title>
-    <url>/Pyfhel/Pyfhel%E5%AD%A6%E4%B9%A0%EF%BC%9ABFV%E6%95%B4%E6%95%B0%E5%8A%A0%E5%AF%86/</url>
-    <content><![CDATA[<p>Pyfhel库中包含的内容十分丰富，可以从Pyfhel&#x2F;examples入手，来体验如何使用Pyfhel。下面具体展示其中的BFV方案使用实例。</p>
-<h3 id="BFV实例"><a href="#BFV实例" class="headerlink" title="BFV实例"></a>BFV实例</h3><p>BFV (Brakerski&#x2F;Fan-Vercauteren) 方案是一种基于环上的学习困难问题的同态加密方案。BFV方案允许对编码后的整数进行加密，然后进行同态加密操作（如加法和乘法），最后能够解密出一个近似的结果。论文：<span class="exturl" data-url="aHR0cHM6Ly9lcHJpbnQuaWFjci5vcmcvMjAxMi8xNDQucGRm">BFV<i class="fa fa-external-link-alt"></i></span></p>
-<h4 id="声明参数"><a href="#声明参数" class="headerlink" title="声明参数"></a><strong>声明参数</strong></h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">HE = Pyfhel()</span><br><span class="line">bfv_params = &#123;</span><br><span class="line">    <span class="string">&#x27;scheme&#x27;</span>: <span class="string">&#x27;BFV&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;n&#x27;</span>: <span class="number">2</span> ** <span class="number">13</span>,</span><br><span class="line">    <span class="string">&#x27;t&#x27;</span>: <span class="number">65537</span>,</span><br><span class="line">    <span class="string">&#x27;t_bits&#x27;</span>: <span class="number">20</span>,</span><br><span class="line">    <span class="string">&#x27;sec&#x27;</span>: <span class="number">128</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>‘n’：环的度数。环度指的是同态加密使用的多项式的最大次数加1，因为多项式的次数是从0开始的。这里的值是$2^{13}$，意味着多项式最大次数为$2^{13} - 1$。可以看成是明文数组的长度（明文槽的数量），这些数组中的元素会被编码为一个单一的密文</p>
-<p><strong>注意：</strong>环度越大，表示能处理的数据量也越大，但计算复杂度也会增加</p>
-</li>
-<li><p>‘t’：明文模数。通常用于将明文编码为多项式以及从多项式解码。必须是一个素数满足$t - 1$能被$2^n$整除</p>
-</li>
-<li><p>‘t_bits’：$t$的比特数。用于生成合适的$t$。如果指定该值就会覆盖上述的$t$值</p>
-</li>
-<li><p>‘sec’：安全参数。AES密钥的等效长度（以比特位为单位）。用于设置密文模数$q$，可在{128，192，256}中选择。越大意味着越安全，但更低的计算效率</p>
-</li>
-</ul>
-<h4 id="构造密钥"><a href="#构造密钥" class="headerlink" title="构造密钥"></a><strong>构造密钥</strong></h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 生成BFV方案的context</span></span><br><span class="line">HE.contextGen(**bfv_params)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成公/私钥对</span></span><br><span class="line">HE.keyGen()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成选择密钥 --&gt; 允许旋转/移动</span></span><br><span class="line">HE.rotateKeyGen()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成重线性化密钥</span></span><br><span class="line">HE.relinKeyGen()</span><br></pre></td></tr></table></figure>
-
-<h4 id="生成测试数据"><a href="#生成测试数据" class="headerlink" title="生成测试数据"></a><strong>生成测试数据</strong></h4><ul>
-<li>定义两个1D的整型数组，编码并加密</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 生成整型数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># arr1 = [0, 1, ... n-1] (length n)</span></span><br><span class="line"><span class="comment"># 最大可能值为t/2-1</span></span><br><span class="line">arr1 = np.arange(bfv_params[<span class="string">&#x27;n&#x27;</span>], dtype=np.int64)</span><br><span class="line"></span><br><span class="line"><span class="comment"># arr2 = [-t//2, -1, 1] (length 3) --&gt; 编码时将数组剩余部分填充0</span></span><br><span class="line"><span class="comment"># 最小可能值为-t/2</span></span><br><span class="line">arr2 = np.array([-bfv_params[<span class="string">&#x27;t&#x27;</span>] // <span class="number">2</span>, -<span class="number">1</span>, <span class="number">1</span>], dtype=np.int64)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将arr1编码为PyPtxt的明文</span></span><br><span class="line">ptxt1 = HE.encodeInt(arr1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># arr2的长度为3，将arr2用0填充为长度n，再编码为PyPtxt的明文</span></span><br><span class="line">ptxt2 = HE.encodeInt(arr2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加密明文ptxt1和ptxt2，返回PyCtxt密文</span></span><br><span class="line">ctxt1 = HE.encryptPtxt(ptxt1)</span><br><span class="line">ctxt2 = HE.encryptPtxt(ptxt2)</span><br></pre></td></tr></table></figure>
-
-<h4 id="同态计算"><a href="#同态计算" class="headerlink" title="同态计算"></a><strong>同态计算</strong></h4><p>密文&#x2F;明文必须建立在同一个context下</p>
-<ul>
-<li><p>密文-密文操作</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ccSum = ctxt1 + ctxt2</span><br><span class="line">ccSub = ctxt1 - ctxt2</span><br><span class="line">ccMul = ctxt1 * ctxt2</span><br><span class="line">cNeg = -ctxt1</span><br><span class="line">cSq = ctxt1 ** <span class="number">2</span></span><br><span class="line">cPow = ctxt1 ** <span class="number">3</span></span><br><span class="line">cRotR = ctxt1 &gt;&gt; <span class="number">2</span></span><br><span class="line">cRotL = ctxt1 &lt;&lt; <span class="number">2</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>密文-明文操作</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cpSum = ctxt1 + ptxt2</span><br><span class="line">cpSum1 = ptxt2 + ccMul</span><br><span class="line">cpSub = ctxt1 - ptxt2</span><br><span class="line">cpMul = ctxt1 * ptxt2</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>乘法重线性化：密文-密文之间的乘法会导致生成的密文多项式的次数增加。为了防止这种增长，通过使用重现性化技术（通常在每次c-c mult之后），从而降低密文多项式的次数到最小规模（两个多项式c0 &amp; c1）</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Relinearization-&gt; Right after each multiplication.&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;ccMul before relinearization (size <span class="subst">&#123;ccMul.size()&#125;</span>): <span class="subst">&#123;ccMul&#125;</span>&quot;</span>)</span><br><span class="line">~ccMul</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;ccMul after relinearization (size <span class="subst">&#123;ccMul.size()&#125;</span>): <span class="subst">&#123;ccMul&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;cPow after 2 mult&amp;relin rounds:  (size <span class="subst">&#123;cPow.size()&#125;</span>): <span class="subst">&#123;cPow&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="解码并解密"><a href="#解码并解密" class="headerlink" title="解码并解密"></a><strong>解码并解密</strong></h4><ul>
-<li>将密文信息进行解码&amp;解密，并进行显示输出</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">r1     = HE.decryptInt(ctxt1)</span><br><span class="line">r2     = HE.decryptInt(ctxt2)</span><br><span class="line">rccSum = HE.decryptInt(ccSum)</span><br><span class="line">rccSub = HE.decryptInt(ccSub)</span><br><span class="line">rccMul = HE.decryptInt(ccMul)</span><br><span class="line">rcSq   = HE.decryptInt(cSq  )</span><br><span class="line">rcNeg  = HE.decryptInt(cNeg )</span><br><span class="line">rcPow  = HE.decryptInt(cPow )</span><br><span class="line">rcRotR = HE.decryptInt(cRotR)</span><br><span class="line">rcRotL = HE.decryptInt(cRotL)</span><br><span class="line">rcpSum = HE.decryptInt(cpSum)</span><br><span class="line">rcpSub = HE.decryptInt(cpSub)</span><br><span class="line">rcpMul = HE.decryptInt(cpMul)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Decrypting results&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; Original ciphertexts: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 --(decr)--&gt; &quot;</span>, r1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt2 --(decr)--&gt; &quot;</span>, r2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; Ciphertext-ciphertext Ops: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 + ctxt2 = ccSum --(decr)--&gt; &quot;</span>, rccSum)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 - ctxt2 = ccSub --(decr)--&gt; &quot;</span>, rccSub)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 * ctxt2 = ccMul --(decr)--&gt; &quot;</span>, rccMul)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; Single ciphertext: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1**2      = cSq   --(decr)--&gt; &quot;</span>, rcSq  )</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\t- ctxt1       = cNeg  --(decr)--&gt; &quot;</span>, rcNeg )</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1**3      = cPow  --(decr)--&gt; &quot;</span>, rcPow )</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 &gt;&gt; 2    = cRotR --(decr)--&gt; &quot;</span>, rcRotR)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 &lt;&lt; 2    = cRotL --(decr)--&gt; &quot;</span>, rcRotL)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; Ciphertext-plaintext ops: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 + ptxt2 = cpSum --(decr)--&gt; &quot;</span>, rcpSum)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 - ptxt2 = cpSub --(decr)--&gt; &quot;</span>, rcpSub)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 * ptxt2 = cpMul --(decr)--&gt; &quot;</span>, rcpMul)</span><br></pre></td></tr></table></figure>
-
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>以上实例具体在<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2liYXJyb25kL1B5ZmhlbC9ibG9iL21hc3Rlci9leGFtcGxlcy9EZW1vXzJfSW50ZWdlcl9CRlYucHk=">Pyfhel&#x2F;examples<i class="fa fa-external-link-alt"></i></span>中，有需要可以自行查阅源码。</p>
-]]></content>
-      <categories>
-        <category>Pyfhel</category>
-      </categories>
-      <tags>
-        <tag>Pyfhel</tag>
-        <tag>BFV</tag>
-        <tag>同态加密</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Pyfhel学习：CKKS浮点数加密</title>
     <url>/Pyfhel/Pyfhel%E5%AD%A6%E4%B9%A0%EF%BC%9ACKKS%E6%B5%AE%E7%82%B9%E6%95%B0%E5%8A%A0%E5%AF%86/</url>
     <content><![CDATA[<p>Pyfhel库中包含的内容十分丰富，可以从Pyfhel&#x2F;examples入手，来体验如何使用Pyfhel。下面具体展示其中的CKKS方案使用实例。</p>
@@ -115,8 +63,8 @@
       </categories>
       <tags>
         <tag>Pyfhel</tag>
-        <tag>同态加密</tag>
         <tag>CKKS</tag>
+        <tag>同态加密</tag>
       </tags>
   </entry>
   <entry>
@@ -160,6 +108,58 @@
       <tags>
         <tag>Pyfhel</tag>
         <tag>同态加密</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pyfhel学习：BFV整数加密</title>
+    <url>/Pyfhel/Pyfhel%E5%AD%A6%E4%B9%A0%EF%BC%9ABFV%E6%95%B4%E6%95%B0%E5%8A%A0%E5%AF%86/</url>
+    <content><![CDATA[<p>Pyfhel库中包含的内容十分丰富，可以从Pyfhel&#x2F;examples入手，来体验如何使用Pyfhel。下面具体展示其中的BFV方案使用实例。</p>
+<h3 id="BFV实例"><a href="#BFV实例" class="headerlink" title="BFV实例"></a>BFV实例</h3><p>BFV (Brakerski&#x2F;Fan-Vercauteren) 方案是一种基于环上的学习困难问题的同态加密方案。BFV方案允许对编码后的整数进行加密，然后进行同态加密操作（如加法和乘法），最后能够解密出一个近似的结果。论文：<span class="exturl" data-url="aHR0cHM6Ly9lcHJpbnQuaWFjci5vcmcvMjAxMi8xNDQucGRm">BFV<i class="fa fa-external-link-alt"></i></span></p>
+<h4 id="声明参数"><a href="#声明参数" class="headerlink" title="声明参数"></a><strong>声明参数</strong></h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">HE = Pyfhel()</span><br><span class="line">bfv_params = &#123;</span><br><span class="line">    <span class="string">&#x27;scheme&#x27;</span>: <span class="string">&#x27;BFV&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;n&#x27;</span>: <span class="number">2</span> ** <span class="number">13</span>,</span><br><span class="line">    <span class="string">&#x27;t&#x27;</span>: <span class="number">65537</span>,</span><br><span class="line">    <span class="string">&#x27;t_bits&#x27;</span>: <span class="number">20</span>,</span><br><span class="line">    <span class="string">&#x27;sec&#x27;</span>: <span class="number">128</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>‘n’：环的度数。环度指的是同态加密使用的多项式的最大次数加1，因为多项式的次数是从0开始的。这里的值是$2^{13}$，意味着多项式最大次数为$2^{13} - 1$。可以看成是明文数组的长度（明文槽的数量），这些数组中的元素会被编码为一个单一的密文</p>
+<p><strong>注意：</strong>环度越大，表示能处理的数据量也越大，但计算复杂度也会增加</p>
+</li>
+<li><p>‘t’：明文模数。通常用于将明文编码为多项式以及从多项式解码。必须是一个素数满足$t - 1$能被$2^n$整除</p>
+</li>
+<li><p>‘t_bits’：$t$的比特数。用于生成合适的$t$。如果指定该值就会覆盖上述的$t$值</p>
+</li>
+<li><p>‘sec’：安全参数。AES密钥的等效长度（以比特位为单位）。用于设置密文模数$q$，可在{128，192，256}中选择。越大意味着越安全，但更低的计算效率</p>
+</li>
+</ul>
+<h4 id="构造密钥"><a href="#构造密钥" class="headerlink" title="构造密钥"></a><strong>构造密钥</strong></h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 生成BFV方案的context</span></span><br><span class="line">HE.contextGen(**bfv_params)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成公/私钥对</span></span><br><span class="line">HE.keyGen()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成选择密钥 --&gt; 允许旋转/移动</span></span><br><span class="line">HE.rotateKeyGen()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成重线性化密钥</span></span><br><span class="line">HE.relinKeyGen()</span><br></pre></td></tr></table></figure>
+
+<h4 id="生成测试数据"><a href="#生成测试数据" class="headerlink" title="生成测试数据"></a><strong>生成测试数据</strong></h4><ul>
+<li>定义两个1D的整型数组，编码并加密</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 生成整型数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># arr1 = [0, 1, ... n-1] (length n)</span></span><br><span class="line"><span class="comment"># 最大可能值为t/2-1</span></span><br><span class="line">arr1 = np.arange(bfv_params[<span class="string">&#x27;n&#x27;</span>], dtype=np.int64)</span><br><span class="line"></span><br><span class="line"><span class="comment"># arr2 = [-t//2, -1, 1] (length 3) --&gt; 编码时将数组剩余部分填充0</span></span><br><span class="line"><span class="comment"># 最小可能值为-t/2</span></span><br><span class="line">arr2 = np.array([-bfv_params[<span class="string">&#x27;t&#x27;</span>] // <span class="number">2</span>, -<span class="number">1</span>, <span class="number">1</span>], dtype=np.int64)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将arr1编码为PyPtxt的明文</span></span><br><span class="line">ptxt1 = HE.encodeInt(arr1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># arr2的长度为3，将arr2用0填充为长度n，再编码为PyPtxt的明文</span></span><br><span class="line">ptxt2 = HE.encodeInt(arr2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加密明文ptxt1和ptxt2，返回PyCtxt密文</span></span><br><span class="line">ctxt1 = HE.encryptPtxt(ptxt1)</span><br><span class="line">ctxt2 = HE.encryptPtxt(ptxt2)</span><br></pre></td></tr></table></figure>
+
+<h4 id="同态计算"><a href="#同态计算" class="headerlink" title="同态计算"></a><strong>同态计算</strong></h4><p>密文&#x2F;明文必须建立在同一个context下</p>
+<ul>
+<li><p>密文-密文操作</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ccSum = ctxt1 + ctxt2</span><br><span class="line">ccSub = ctxt1 - ctxt2</span><br><span class="line">ccMul = ctxt1 * ctxt2</span><br><span class="line">cNeg = -ctxt1</span><br><span class="line">cSq = ctxt1 ** <span class="number">2</span></span><br><span class="line">cPow = ctxt1 ** <span class="number">3</span></span><br><span class="line">cRotR = ctxt1 &gt;&gt; <span class="number">2</span></span><br><span class="line">cRotL = ctxt1 &lt;&lt; <span class="number">2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>密文-明文操作</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cpSum = ctxt1 + ptxt2</span><br><span class="line">cpSum1 = ptxt2 + ccMul</span><br><span class="line">cpSub = ctxt1 - ptxt2</span><br><span class="line">cpMul = ctxt1 * ptxt2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>乘法重线性化：密文-密文之间的乘法会导致生成的密文多项式的次数增加。为了防止这种增长，通过使用重现性化技术（通常在每次c-c mult之后），从而降低密文多项式的次数到最小规模（两个多项式c0 &amp; c1）</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Relinearization-&gt; Right after each multiplication.&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;ccMul before relinearization (size <span class="subst">&#123;ccMul.size()&#125;</span>): <span class="subst">&#123;ccMul&#125;</span>&quot;</span>)</span><br><span class="line">~ccMul</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;ccMul after relinearization (size <span class="subst">&#123;ccMul.size()&#125;</span>): <span class="subst">&#123;ccMul&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;cPow after 2 mult&amp;relin rounds:  (size <span class="subst">&#123;cPow.size()&#125;</span>): <span class="subst">&#123;cPow&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="解码并解密"><a href="#解码并解密" class="headerlink" title="解码并解密"></a><strong>解码并解密</strong></h4><ul>
+<li>将密文信息进行解码&amp;解密，并进行显示输出</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">r1     = HE.decryptInt(ctxt1)</span><br><span class="line">r2     = HE.decryptInt(ctxt2)</span><br><span class="line">rccSum = HE.decryptInt(ccSum)</span><br><span class="line">rccSub = HE.decryptInt(ccSub)</span><br><span class="line">rccMul = HE.decryptInt(ccMul)</span><br><span class="line">rcSq   = HE.decryptInt(cSq  )</span><br><span class="line">rcNeg  = HE.decryptInt(cNeg )</span><br><span class="line">rcPow  = HE.decryptInt(cPow )</span><br><span class="line">rcRotR = HE.decryptInt(cRotR)</span><br><span class="line">rcRotL = HE.decryptInt(cRotL)</span><br><span class="line">rcpSum = HE.decryptInt(cpSum)</span><br><span class="line">rcpSub = HE.decryptInt(cpSub)</span><br><span class="line">rcpMul = HE.decryptInt(cpMul)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Decrypting results&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; Original ciphertexts: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 --(decr)--&gt; &quot;</span>, r1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt2 --(decr)--&gt; &quot;</span>, r2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; Ciphertext-ciphertext Ops: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 + ctxt2 = ccSum --(decr)--&gt; &quot;</span>, rccSum)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 - ctxt2 = ccSub --(decr)--&gt; &quot;</span>, rccSub)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 * ctxt2 = ccMul --(decr)--&gt; &quot;</span>, rccMul)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; Single ciphertext: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1**2      = cSq   --(decr)--&gt; &quot;</span>, rcSq  )</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\t- ctxt1       = cNeg  --(decr)--&gt; &quot;</span>, rcNeg )</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1**3      = cPow  --(decr)--&gt; &quot;</span>, rcPow )</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 &gt;&gt; 2    = cRotR --(decr)--&gt; &quot;</span>, rcRotR)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 &lt;&lt; 2    = cRotL --(decr)--&gt; &quot;</span>, rcRotL)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; Ciphertext-plaintext ops: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 + ptxt2 = cpSum --(decr)--&gt; &quot;</span>, rcpSum)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 - ptxt2 = cpSub --(decr)--&gt; &quot;</span>, rcpSub)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt1 * ptxt2 = cpMul --(decr)--&gt; &quot;</span>, rcpMul)</span><br></pre></td></tr></table></figure>
+
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>以上实例具体在<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2liYXJyb25kL1B5ZmhlbC9ibG9iL21hc3Rlci9leGFtcGxlcy9EZW1vXzJfSW50ZWdlcl9CRlYucHk=">Pyfhel&#x2F;examples<i class="fa fa-external-link-alt"></i></span>中，有需要可以自行查阅源码。</p>
+]]></content>
+      <categories>
+        <category>Pyfhel</category>
+      </categories>
+      <tags>
+        <tag>Pyfhel</tag>
+        <tag>同态加密</tag>
+        <tag>BFV</tag>
       </tags>
   </entry>
 </search>
