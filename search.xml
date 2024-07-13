@@ -53,6 +53,49 @@
       </tags>
   </entry>
   <entry>
+    <title>Pyfhel库的安装</title>
+    <url>/Pyfhel/Pyfhel%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<p>Pyfhel是一个基于Python的强大的同态加密库，可以实现各种高级的加密算法，包括BFV、BGV和CKKS等。Pyfhel实现了多个同态加密的功能，例如加法、乘法、求幂以及标量积等。该库可应用于简单的同态加密算法演示以及机器学习算法等复杂问题。</p>
+<p>下面介绍如何在macOS上安装Pyfhel库，Linux系统类似。</p>
+<h3 id="安装gcc"><a href="#安装gcc" class="headerlink" title="安装gcc"></a>安装gcc</h3><ul>
+<li><p><strong>注意：</strong>不要使用系统自带的clang，这会导致安装Pyfhel报错</p>
+<ul>
+<li>macOS：<code>brew install gcc</code></li>
+<li>Ubuntu: <code>sudo apt install gcc g++</code></li>
+</ul>
+</li>
+<li><p>查看gcc版本，这里以gcc14版本为例。<code>gcc-14 -v</code></p>
+</li>
+<li><p>macOS用户还必须设置<strong>多个环境变量</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Brew installs GCC in /opt/homebrew/bin on Apple Silicon and /usr/local/bin on Intel.</span></span><br><span class="line"><span class="keyword">if</span> [[ $(uname -m) = <span class="string">&quot;arm64&quot;</span> ]]; then BREW_GCC_PATH=<span class="string">&quot;/opt/homebrew/bin&quot;</span>; <span class="keyword">else</span> BREW_GCC_PATH=<span class="string">&quot;/usr/local/bin&quot;</span>; fi</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set CC/CXX environment variables to the most recent GNU GCC</span></span><br><span class="line">export CC=<span class="string">&quot;$BREW_GCC_PATH/$(ls $BREW_GCC_PATH | grep ^gcc-14 | sort -V -r | head -n 1)&quot;</span></span><br><span class="line">export CXX=<span class="string">&quot;$BREW_GCC_PATH/$(ls $BREW_GCC_PATH | grep ^g++-14 | sort -V -r | head -n 1)&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set MACOSX_DEPLOYMENT_TARGET to avoid version mismatch warnings</span></span><br><span class="line">echo <span class="string">&quot;MACOSX_DEPLOYMENT_TARGET=$(sw_vers -productVersion)&quot;</span> &gt;&gt; $GITHUB_ENV</span><br><span class="line">echo <span class="string">&quot;MACOSX_DEPLOYMENT_TARGET=$&#123;&#123; env.MACOSX_DEPLOYMENT_TARGET &#125;&#125;&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h3><ul>
+<li><p><strong>注意：</strong>不要使用系统自带的python，因为它可能是使用clang编译的</p>
+<p><code>brew install python</code></p>
+</li>
+</ul>
+<h3 id="安装Pyfhel"><a href="#安装Pyfhel" class="headerlink" title="安装Pyfhel"></a>安装Pyfhel</h3><ul>
+<li><p><code>pip install Pyfhel</code></p>
+</li>
+<li><p>安装最新版本</p>
+<p><code>git clone --recursive https://github.com/ibarrond/Pyfhel.git pip install .</code></p>
+</li>
+<li><p>如果安装过程中有类似的报错<code>[Config.h - No such file or directory]</code>，可能系统中缺少<strong>libconfig-dev</strong>包</p>
+<p><code>brew install libconfig-dev</code></p>
+</li>
+</ul>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>Pyfhel是一个很有用的库，更多内容可以自行查阅：</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2liYXJyb25kL1B5ZmhlbC90cmVlL21hc3Rlcj90YWI9cmVhZG1lLW92LWZpbGU=">Pyfhel库<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>Pyfhel</category>
+      </categories>
+      <tags>
+        <tag>Pyfhel</tag>
+        <tag>同态加密</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Pyfhel学习：CKKS浮点数加密</title>
     <url>/Pyfhel/Pyfhel%E5%AD%A6%E4%B9%A0%EF%BC%9ACKKS%E6%B5%AE%E7%82%B9%E6%95%B0%E5%8A%A0%E5%AF%86/</url>
     <content><![CDATA[<p>Pyfhel库中包含的内容十分丰富，可以从Pyfhel&#x2F;examples入手，来体验如何使用Pyfhel。下面具体展示其中的CKKS方案使用实例。</p>
@@ -117,49 +160,6 @@
         <tag>Pyfhel</tag>
         <tag>同态加密</tag>
         <tag>CKKS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Pyfhel库的安装</title>
-    <url>/Pyfhel/Pyfhel%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<p>Pyfhel是一个基于Python的强大的同态加密库，可以实现各种高级的加密算法，包括BFV、BGV和CKKS等。Pyfhel实现了多个同态加密的功能，例如加法、乘法、求幂以及标量积等。该库可应用于简单的同态加密算法演示以及机器学习算法等复杂问题。</p>
-<p>下面介绍如何在macOS上安装Pyfhel库，Linux系统类似。</p>
-<h3 id="安装gcc"><a href="#安装gcc" class="headerlink" title="安装gcc"></a>安装gcc</h3><ul>
-<li><p><strong>注意：</strong>不要使用系统自带的clang，这会导致安装Pyfhel报错</p>
-<ul>
-<li>macOS：<code>brew install gcc</code></li>
-<li>Ubuntu: <code>sudo apt install gcc g++</code></li>
-</ul>
-</li>
-<li><p>查看gcc版本，这里以gcc14版本为例。<code>gcc-14 -v</code></p>
-</li>
-<li><p>macOS用户还必须设置<strong>多个环境变量</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Brew installs GCC in /opt/homebrew/bin on Apple Silicon and /usr/local/bin on Intel.</span></span><br><span class="line"><span class="keyword">if</span> [[ $(uname -m) = <span class="string">&quot;arm64&quot;</span> ]]; then BREW_GCC_PATH=<span class="string">&quot;/opt/homebrew/bin&quot;</span>; <span class="keyword">else</span> BREW_GCC_PATH=<span class="string">&quot;/usr/local/bin&quot;</span>; fi</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set CC/CXX environment variables to the most recent GNU GCC</span></span><br><span class="line">export CC=<span class="string">&quot;$BREW_GCC_PATH/$(ls $BREW_GCC_PATH | grep ^gcc-14 | sort -V -r | head -n 1)&quot;</span></span><br><span class="line">export CXX=<span class="string">&quot;$BREW_GCC_PATH/$(ls $BREW_GCC_PATH | grep ^g++-14 | sort -V -r | head -n 1)&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set MACOSX_DEPLOYMENT_TARGET to avoid version mismatch warnings</span></span><br><span class="line">echo <span class="string">&quot;MACOSX_DEPLOYMENT_TARGET=$(sw_vers -productVersion)&quot;</span> &gt;&gt; $GITHUB_ENV</span><br><span class="line">echo <span class="string">&quot;MACOSX_DEPLOYMENT_TARGET=$&#123;&#123; env.MACOSX_DEPLOYMENT_TARGET &#125;&#125;&quot;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h3><ul>
-<li><p><strong>注意：</strong>不要使用系统自带的python，因为它可能是使用clang编译的</p>
-<p><code>brew install python</code></p>
-</li>
-</ul>
-<h3 id="安装Pyfhel"><a href="#安装Pyfhel" class="headerlink" title="安装Pyfhel"></a>安装Pyfhel</h3><ul>
-<li><p><code>pip install Pyfhel</code></p>
-</li>
-<li><p>安装最新版本</p>
-<p><code>git clone --recursive https://github.com/ibarrond/Pyfhel.git pip install .</code></p>
-</li>
-<li><p>如果安装过程中有类似的报错<code>[Config.h - No such file or directory]</code>，可能系统中缺少<strong>libconfig-dev</strong>包</p>
-<p><code>brew install libconfig-dev</code></p>
-</li>
-</ul>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>Pyfhel是一个很有用的库，更多内容可以自行查阅：</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2liYXJyb25kL1B5ZmhlbC90cmVlL21hc3Rlcj90YWI9cmVhZG1lLW92LWZpbGU=">Pyfhel库<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>Pyfhel</category>
-      </categories>
-      <tags>
-        <tag>Pyfhel</tag>
-        <tag>同态加密</tag>
       </tags>
   </entry>
 </search>
