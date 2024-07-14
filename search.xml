@@ -88,15 +88,15 @@
 </li>
 <li><p>重缩放&amp;模切换</p>
 <ul>
-<li><p>CKKS 进行更复杂的操作需要跟踪 CKKS 缩放因子。</p>
+<li><p>CKKS 进行更复杂的操作需要跟踪 CKKS 缩放因子</p>
 </li>
-<li><p>使用两个 CKKS 密文（或一个密文和一个明文）进行操作需要它们具有相同的缩放因子和相同的模数级别。</p>
+<li><p>使用两个 CKKS 密文（或一个密文和一个明文）进行操作需要它们具有相同的缩放因子和相同的模数级别</p>
 </li>
-<li><p>缩放因子：乘法产生一个新的缩放因子，它是两个操作数比例的乘积。要缩小密文，请使用 <code>HE.rescale_to_next(ctxt)</code> 函数，该函数将模数切换到 qi 链中的下一个模数，并将密文除以前一个模数。由于这是唯一的缩小操作，建议使用与<code>HE.qi_sizes</code>中的中间模数大小相同的“scale_bits”。</p>
+<li><p>缩放因子：乘法产生一个新的缩放因子，它是两个操作数比例的乘积。要缩小密文，请使用 <code>HE.rescale_to_next(ctxt)</code> 函数，该函数将模数切换到 qi 链中的下一个模数，并将密文除以前一个模数。由于这是唯一的缩小操作，建议使用与<code>HE.qi_sizes</code>中的中间模数大小相同的“scale_bits”</p>
 </li>
-<li><p>模切换：切换到 qi 链中的下一个模数，但不重新缩放。这是通过 <code>HE.mod_switch_to_next(ctxt) </code>函数实现的。</p>
+<li><p>模切换：切换到 qi 链中的下一个模数，但不重新缩放。这是通过 <code>HE.mod_switch_to_next(ctxt) </code>函数实现的</p>
 </li>
-<li><p>为了方便用户，Pyfhel 提供了 <code>HE.align_mod_n_scale(this, other)</code>，它会自动执行重新缩放和模数切换。PyCtxt 的所有 2 -输入重载运算符 (+、-、*、&#x2F;) 都会自动调用此函数。<br>相应的 HE.add、HE.sub、HE.multiply 则不会。</p>
+<li><p>为了方便用户，Pyfhel 提供了 <code>HE.align_mod_n_scale(this, other)</code>，它会自动执行重新缩放和模数切换。PyCtxt 的所有 2 -输入重载运算符 (+、-、*、&#x2F;) 都会自动调用此函数。<br>相应的 HE.add、HE.sub、HE.multiply 则不会</p>
 </li>
 <li><p>在此示例中，计算均方误差，将两个密文的平均值视为真实分布。逐步检查比例和模级：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#  1. Mean</span></span><br><span class="line">c_mean = (ctxt_x + ctxt_y) / <span class="number">2</span></span><br><span class="line"><span class="comment">#  2. MSE</span></span><br><span class="line">c_mse_1 = ~((ctxt_x - c_mean)**<span class="number">2</span>)</span><br><span class="line">c_mse_2 = (~(ctxt_y - c_mean)**<span class="number">2</span>)</span><br><span class="line">c_mse = (c_mse_1 + c_mse_2)/ <span class="number">3</span></span><br><span class="line"><span class="comment">#  3. Cumulative sum</span></span><br><span class="line">c_mse += (c_mse &lt;&lt; <span class="number">1</span>)</span><br><span class="line">c_mse += (c_mse &lt;&lt; <span class="number">2</span>)  <span class="comment"># element 0 contains the result</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\n5. Rescaling &amp; Mod Switching.&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;-&gt;\tMean: &quot;</span>, c_mean)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;-&gt;\tMSE_1: &quot;</span>, c_mse_1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;-&gt;\tMSE_2: &quot;</span>, c_mse_2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;-&gt;\tMSE: &quot;</span>, c_mse)</span><br></pre></td></tr></table></figure></li>
