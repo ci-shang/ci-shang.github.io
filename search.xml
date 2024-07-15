@@ -31,7 +31,7 @@
 <ul>
 <li><p>函数$f$和$g$的输出都是密文$c_1^{\prime}&#x3D;f(c_1,c_2,c_3)$和$c_2^{\prime}&#x3D;g(c_1,c_4)$</p>
 </li>
-<li><p>解密$c_1^{\prime}$和$c_2^{\prime}$，得到<br>$$<br>D_k(f(c_1,c_2,c_3)) &amp; &#x3D; &amp; f(m_1,m_2,m_3) \<br>D_k(g(c_1,c_4)) &amp; &#x3D; &amp; g(m_1,m_4)<br>$$</p>
+<li><p>解密$c_1^{\prime}$和$c_2^{\prime}$，得到<br>$$<br>D_k(f(c_1,c_2,c_3)) &#x3D; f(m_1,m_2,m_3) \<br>D_k(g(c_1,c_4)) &#x3D; g(m_1,m_4)<br>$$</p>
 </li>
 <li><p>这就是同态加密的<strong>魔力</strong></p>
 </li>
