@@ -54,7 +54,7 @@
   </entry>
   <entry>
     <title>初识全同态加密</title>
-    <url>/uncategorized/FHE/%E5%88%9D%E8%AF%86%E5%85%A8%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/</url>
+    <url>/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/FHE/%E5%88%9D%E8%AF%86%E5%85%A8%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/</url>
     <content><![CDATA[<p>近年来，隐私保护的话题越来越引起人们的重视，使得同态加密等一系列密码学应用技术得到广泛的普及。因此，我想对全同态加密（Fully Homomorphic Encryption，FHE）稍作介绍一下。</p>
 <h3 id="FHE的定义"><a href="#FHE的定义" class="headerlink" title="FHE的定义"></a>FHE的定义</h3><p>FHE通俗来说就是一共有$n$个数$m_1, m_2, \ldots, m_n$，加密后对其进行某个函数运算$f(E(m_1), E(m_2), \ldots, E(m_n))$，解密后获得最终运算结果，在这个过程中不暴露$n$个数本身的数值。</p>
 <ul>
@@ -210,6 +210,16 @@
 </tbody></table>
 <p>除了开发传统的全同态库之外，还有许多团队在研究如何通过GPU、FPGA、ASIC等异构硬件来更好地加速全同态加密算法的计算。比如，cuFHE就是一个比较有名的基于CUDA的GPU加速全同态加密系统。</p>
 ]]></content>
+      <categories>
+        <category>同态加密</category>
+      </categories>
+      <tags>
+        <tag>Pyfhel</tag>
+        <tag>BFV</tag>
+        <tag>同态加密</tag>
+        <tag>CKKS</tag>
+        <tag>BGV</tag>
+      </tags>
   </entry>
   <entry>
     <title>Pyfhel库的安装</title>
