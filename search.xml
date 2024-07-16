@@ -15,22 +15,19 @@
 <p>If $f(m)&#x3D;m^2$ and we have access only to $c &#x3D; E_d(m) &#x3D; m^d \pmod{n}$, we can compute $c^2 \pmod{n}$ which is equal to the encryption of $m^2$<br>$$<br>c^2 &#x3D; (m^d)^2 &#x3D; (m^2)^d &#x3D; E_d(m^2)<br>$$</p>
 </blockquote>
 <p>一个加密函数同时支持加法和乘法同态称为FHE函数。</p>
-<h3 id="FHE的过程"><a href="#FHE的过程" class="headerlink" title="FHE的过程"></a>FHE的过程</h3><ul>
-<li><p><strong>密钥生成</strong></p>
-<ul>
+<h3 id="FHE的步骤"><a href="#FHE的步骤" class="headerlink" title="FHE的步骤"></a>FHE的步骤</h3><ul>
+<li><strong>密钥生成</strong><ul>
 <li>生成公钥和私钥</li>
 <li>生成重线性化密钥：降低密文乘法导致增加的密文多项式次数</li>
 <li>生成旋转密钥：允许旋转&#x2F;移动操作</li>
 </ul>
 </li>
-<li><p><strong>加密</strong></p>
-<ul>
+<li><strong>加密</strong><ul>
 <li>消息编码</li>
 <li>生成密文</li>
 </ul>
 </li>
-<li><p><strong>密文计算</strong></p>
-<ul>
+<li><strong>密文计算</strong><ul>
 <li>同态加法</li>
 <li>同态乘法</li>
 <li>噪声控制</li>
@@ -38,8 +35,7 @@
 <li>……</li>
 </ul>
 </li>
-<li><p><strong>解密</strong></p>
-<ul>
+<li><strong>解密</strong><ul>
 <li>解密密文</li>
 <li>消息解码</li>
 </ul>
