@@ -92,7 +92,7 @@
 
   
   <url>
-    <loc>https://ci-shang.github.io/tags/Latex/</loc>
+    <loc>https://ci-shang.github.io/tags/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/</loc>
     <lastmod>2024-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -113,7 +113,7 @@
   </url>
   
   <url>
-    <loc>https://ci-shang.github.io/tags/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/</loc>
+    <loc>https://ci-shang.github.io/tags/BGV/</loc>
     <lastmod>2024-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -127,20 +127,13 @@
   </url>
   
   <url>
-    <loc>https://ci-shang.github.io/tags/BGV/</loc>
+    <loc>https://ci-shang.github.io/tags/Latex/</loc>
     <lastmod>2024-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
 
-  
-  <url>
-    <loc>https://ci-shang.github.io/categories/Latex/</loc>
-    <lastmod>2024-07-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
   
   <url>
     <loc>https://ci-shang.github.io/categories/Pyfhel/</loc>
@@ -151,6 +144,13 @@
   
   <url>
     <loc>https://ci-shang.github.io/categories/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/</loc>
+    <lastmod>2024-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ci-shang.github.io/categories/Latex/</loc>
     <lastmod>2024-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -32,8 +32,8 @@
 <meta property="article:published_time" content="2024-07-13T02:42:16.000Z">
 <meta property="article:modified_time" content="2024-07-13T02:42:16.000Z">
 <meta property="article:author" content="Ci Shang">
-<meta property="article:tag" content="Pyfhel">
 <meta property="article:tag" content="同态加密">
+<meta property="article:tag" content="Pyfhel">
 <meta property="article:tag" content="CKKS">
 <meta name="twitter:card" content="summary">
 
@@ -270,7 +270,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.4k</span>
+              <span>4.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -289,12 +289,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Pyfhel库中包含的内容十分丰富，可以从Pyfhel&#x2F;examples入手，来体验如何使用Pyfhel。下面具体展示其中的CKKS方案使用实例。</p>
+        <p>Pyfhel库中包含的内容十分丰富，可以从Pyfhel/examples入手，来体验如何使用Pyfhel。下面具体展示其中的CKKS方案使用实例。</p>
 <h3 id="CKKS实例"><a href="#CKKS实例" class="headerlink" title="CKKS实例"></a>CKKS实例</h3><p>CKKS（Cheon-Kim-Kim-Song）加密方案在同态加密领域应用广泛，尤其在处理实数和复数计算方面表现优越。CKKS方案能够对编码后的近似实数或复数进行加密，并支持同态加密操作（如加法和乘法），最终解密出近似结果。该方案特别适用于需要处理大量实数数据的机器学习和数据分析场景。论文：<span class="exturl" data-url="aHR0cHM6Ly9lcHJpbnQuaWFjci5vcmcvMjAxNi80MjEucGRm">CKKS<i class="fa fa-external-link-alt"></i></span></p>
 <h4 id="声明参数"><a href="#声明参数" class="headerlink" title="声明参数"></a><strong>声明参数</strong></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HE = Pyfhel()</span><br><span class="line">ckks_params = &#123;</span><br><span class="line">    <span class="string">&#x27;scheme&#x27;</span>: <span class="string">&#x27;CKKS&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;n&#x27;</span>: <span class="number">2</span>**<span class="number">14</span>,</span><br><span class="line">    <span class="string">&#x27;scale&#x27;</span>: <span class="number">2</span>**<span class="number">30</span>,</span><br><span class="line">    <span class="string">&#x27;qi_sizes&#x27;</span>: [<span class="number">60</span>, <span class="number">30</span>, <span class="number">30</span>, <span class="number">30</span>, <span class="number">60</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li><p>‘n’：环的度数。环度指的是同态加密使用的多项式的最大次数加1，因为多项式的次数是从0开始的。这里的值是$2^{14}$，意味着多项式最大次数为$2^{14} - 1$。可以看成是明文数组的长度（明文槽的数量）。<strong>对于CKKS，$n&#x2F;2$个元素会被编码为一个单一的密文</strong></p>
+<li><p>‘n’：环的度数。环度指的是同态加密使用的多项式的最大次数加1，因为多项式的次数是从0开始的。这里的值是$2^{14}$，意味着多项式最大次数为$2^{14} - 1$。可以看成是明文数组的长度（明文槽的数量）。<strong>对于CKKS，$n/2$个元素会被编码为一个单一的密文</strong></p>
 <p><strong>注意：</strong>环度越大，表示能处理的数据量也越大，但计算复杂度也会增加</p>
 </li>
 <li><p>‘ scale’：缩放因子。将浮点数转换为定点数，因为浮点数不能直接进行计算</p>
@@ -303,13 +302,11 @@
 </li>
 </ul>
 <h4 id="构造密钥"><a href="#构造密钥" class="headerlink" title="构造密钥"></a><strong>构造密钥</strong></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成CKKS方案的context</span></span><br><span class="line">HE.contextGen(**ckks_params)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成公/私钥对</span></span><br><span class="line">HE.keyGen()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成旋转密钥 --&gt; 允许旋转/移动</span></span><br><span class="line">HE.rotateKeyGen()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成重线性化密钥</span></span><br><span class="line">HE.relinKeyGen()</span><br></pre></td></tr></table></figure>
-
 <h4 id="生成测试数据"><a href="#生成测试数据" class="headerlink" title="生成测试数据"></a><strong>生成测试数据</strong></h4><ul>
 <li>定义两个1D的浮点型数组，编码并加密</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成浮点型数组</span></span><br><span class="line">arr_x = np.array([<span class="number">0.1</span>, <span class="number">0.2</span>, -<span class="number">0.3</span>], dtype=np.float64)</span><br><span class="line">arr_y = np.array([-<span class="number">1.5</span>, <span class="number">2.3</span>, <span class="number">4.7</span>], dtype=np.float64)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将arr_x和arr_y编码为PyPtxt的明文</span></span><br><span class="line"><span class="comment"># 用0填充为长度n，再编码为PyPtxt的明文</span></span><br><span class="line">ptxt_x = HE.encodeFrac(arr_x)</span><br><span class="line">ptxt_y = HE.encodeFrac(arr_y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加密明文ptxt_x和ptxt_y，返回PyCtxt密文</span></span><br><span class="line">ctxt_x = HE.encryptPtxt(ptxt_x)</span><br><span class="line">ctxt_y = HE.encryptPtxt(ptxt_y)</span><br></pre></td></tr></table></figure>
-
-<h4 id="同态计算"><a href="#同态计算" class="headerlink" title="同态计算"></a><strong>同态计算</strong></h4><p>密文&#x2F;明文必须建立在同一个context下</p>
+<h4 id="同态计算"><a href="#同态计算" class="headerlink" title="同态计算"></a><strong>同态计算</strong></h4><p>密文/明文必须建立在同一个context下</p>
 <ul>
 <li><p>密文-密文操作</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ccSum = ctxt_x + ctxt_y</span><br><span class="line">ccSub = ctxt_x - ctxt_y</span><br><span class="line">ccMul = ctxt_x * ctxt_y</span><br><span class="line">cNeg = -ctxt_x</span><br><span class="line">cSq = ctxt_x ** <span class="number">2</span></span><br><span class="line">cRotR = ctxt_x &gt;&gt; <span class="number">2</span></span><br><span class="line">cRotL = ctxt_x &lt;&lt; <span class="number">2</span></span><br></pre></td></tr></table></figure>
@@ -328,12 +325,13 @@
 </li>
 <li><p>缩放因子：乘法产生一个新的缩放因子，它是两个操作数比例的乘积。要缩小密文，请使用 <code>HE.rescale_to_next(ctxt)</code> 函数，该函数将模数切换到 qi 链中的下一个模数，并将密文除以前一个模数。由于这是唯一的缩小操作，建议使用与<code>HE.qi_sizes</code>中的中间模数大小相同的“scale_bits”</p>
 </li>
-<li><p>模切换：切换到 qi 链中的下一个模数，但不重新缩放。这是通过 <code>HE.mod_switch_to_next(ctxt) </code>函数实现的</p>
+<li><p>模切换：切换到 qi 链中的下一个模数，但不重新缩放。这是通过 <code>HE.mod_switch_to_next(ctxt)</code>函数实现的</p>
 </li>
-<li><p>为了方便用户，Pyfhel 提供了 <code>HE.align_mod_n_scale(this, other)</code>，它会自动执行重新缩放和模数切换。PyCtxt 的所有 2 -输入重载运算符 (+、-、*、&#x2F;) 都会自动调用此函数。<br>相应的 HE.add、HE.sub、HE.multiply 则不会</p>
+<li><p>为了方便用户，Pyfhel 提供了 <code>HE.align_mod_n_scale(this, other)</code>，它会自动执行重新缩放和模数切换。PyCtxt 的所有 2 -输入重载运算符 (+、-、*、/) 都会自动调用此函数。<br>相应的 HE.add、HE.sub、HE.multiply 则不会</p>
 </li>
 <li><p>在此示例中，计算均方误差，将两个密文的平均值视为真实分布。逐步检查比例和模级：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  1. Mean</span></span><br><span class="line">c_mean = (ctxt_x + ctxt_y) / <span class="number">2</span></span><br><span class="line"><span class="comment">#  2. MSE</span></span><br><span class="line">c_mse_1 = ~((ctxt_x - c_mean)**<span class="number">2</span>)</span><br><span class="line">c_mse_2 = (~(ctxt_y - c_mean)**<span class="number">2</span>)</span><br><span class="line">c_mse = (c_mse_1 + c_mse_2)/ <span class="number">3</span></span><br><span class="line"><span class="comment">#  3. Cumulative sum</span></span><br><span class="line">c_mse += (c_mse &lt;&lt; <span class="number">1</span>)</span><br><span class="line">c_mse += (c_mse &lt;&lt; <span class="number">2</span>)  <span class="comment"># element 0 contains the result</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\n5. Rescaling &amp; Mod Switching.&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;-&gt;\tMean: &quot;</span>, c_mean)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;-&gt;\tMSE_1: &quot;</span>, c_mse_1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;-&gt;\tMSE_2: &quot;</span>, c_mse_2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;-&gt;\tMSE: &quot;</span>, c_mse)</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  1. Mean</span></span><br><span class="line">c_mean = (ctxt_x + ctxt_y) / <span class="number">2</span></span><br><span class="line"><span class="comment">#  2. MSE</span></span><br><span class="line">c_mse_1 = ~((ctxt_x - c_mean)**<span class="number">2</span>)</span><br><span class="line">c_mse_2 = (~(ctxt_y - c_mean)**<span class="number">2</span>)</span><br><span class="line">c_mse = (c_mse_1 + c_mse_2)/ <span class="number">3</span></span><br><span class="line"><span class="comment">#  3. Cumulative sum</span></span><br><span class="line">c_mse += (c_mse &lt;&lt; <span class="number">1</span>)</span><br><span class="line">c_mse += (c_mse &lt;&lt; <span class="number">2</span>)  <span class="comment"># element 0 contains the result</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\n5. Rescaling &amp; Mod Switching.&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;-&gt;\tMean: &quot;</span>, c_mean)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;-&gt;\tMSE_1: &quot;</span>, c_mse_1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;-&gt;\tMSE_2: &quot;</span>, c_mse_2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;-&gt;\tMSE: &quot;</span>, c_mse)</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ul>
@@ -341,8 +339,7 @@
 <li>将密文信息进行解码&amp;解密，并进行显示输出</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">r_x    = HE.decryptFrac(ctxt_x)</span><br><span class="line">r_y    = HE.decryptFrac(ctxt_y)</span><br><span class="line">rccSum = HE.decryptFrac(ccSum)</span><br><span class="line">rccSub = HE.decryptFrac(ccSub)</span><br><span class="line">rccMul = HE.decryptFrac(ccMul)</span><br><span class="line">rcSq   = HE.decryptFrac(cSq  )</span><br><span class="line">rcNeg  = HE.decryptFrac(cNeg )</span><br><span class="line">rcRotR = HE.decryptFrac(cRotR)</span><br><span class="line">rcRotL = HE.decryptFrac(cRotL)</span><br><span class="line">rcpSum = HE.decryptFrac(cpSum)</span><br><span class="line">rcpSub = HE.decryptFrac(cpSub)</span><br><span class="line">rcpMul = HE.decryptFrac(cpMul)</span><br><span class="line">rmean  = HE.decryptFrac(c_mean)</span><br><span class="line">rmse   = HE.decryptFrac(c_mse)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果为近似值！如果你增加小数，你会注意到误差</span></span><br><span class="line">_r = <span class="keyword">lambda</span> x: np.<span class="built_in">round</span>(x, decimals=<span class="number">6</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;6. Decrypting results&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; Original ciphertexts: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt_x --(decr)--&gt; &quot;</span>, _r(r_x))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt_y --(decr)--&gt; &quot;</span>, _r(r_y))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; Ciphertext-ciphertext Ops: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt_x + ctxt_y = ccSum --(decr)--&gt; &quot;</span>, _r(rccSum))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt_x - ctxt_y = ccSub --(decr)--&gt; &quot;</span>, _r(rccSub))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt_x * ctxt_y = ccMul --(decr)--&gt; &quot;</span>, _r(rccMul))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; Single ciphertext: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt_x**2      = cSq   --(decr)--&gt; &quot;</span>, _r(rcSq  ))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\t- ctxt_x       = cNeg  --(decr)--&gt; &quot;</span>, _r(rcNeg ))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt_x &gt;&gt; 4    = cRotR --(decr)--&gt; &quot;</span>, _r(rcRotR))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt_x &lt;&lt; 4    = cRotL --(decr)--&gt; &quot;</span>, _r(rcRotL))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; Ciphertext-plaintext ops: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt_x + ptxt_y = cpSum --(decr)--&gt; &quot;</span>, _r(rcpSum))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt_x - ptxt_y = cpSub --(decr)--&gt; &quot;</span>, _r(rcpSub))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tctxt_x * ptxt_y = cpMul --(decr)--&gt; &quot;</span>, _r(rcpMul))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; Mean Squared error: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tmean(ctxt_x, ctxt_y) = c_mean --(decr)--&gt; &quot;</span>, _r(rmean))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;   -&gt;\tmse(ctxt_x, ctxt_y)  = c_mse  --(decr)--&gt; &quot;</span>, _r(rmse))</span><br></pre></td></tr></table></figure>
-
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>以上实例具体在<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2liYXJyb25kL1B5ZmhlbC9ibG9iL21hc3Rlci9leGFtcGxlcy9EZW1vXzNfRmxvYXRfQ0tLUy5weQ==">Pyfhel&#x2F;examples<i class="fa fa-external-link-alt"></i></span>中，有需要可以自行查阅源码。</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>以上实例具体在<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2liYXJyb25kL1B5ZmhlbC9ibG9iL21hc3Rlci9leGFtcGxlcy9EZW1vXzNfRmxvYXRfQ0tLUy5weQ==">Pyfhel/examples<i class="fa fa-external-link-alt"></i></span>中，有需要可以自行查阅源码。</p>
 
     </div>
 
@@ -397,8 +394,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Pyfhel/" rel="tag"><i class="fa fa-tag"></i> Pyfhel</a>
               <a href="/tags/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/" rel="tag"><i class="fa fa-tag"></i> 同态加密</a>
+              <a href="/tags/Pyfhel/" rel="tag"><i class="fa fa-tag"></i> Pyfhel</a>
               <a href="/tags/CKKS/" rel="tag"><i class="fa fa-tag"></i> CKKS</a>
           </div>
 
@@ -556,7 +553,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">16k</span>
+    <span title="站点总字数">15k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

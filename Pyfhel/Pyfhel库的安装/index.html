@@ -32,8 +32,8 @@
 <meta property="article:published_time" content="2024-07-03T03:47:46.000Z">
 <meta property="article:modified_time" content="2024-07-04T05:47:46.000Z">
 <meta property="article:author" content="Ci Shang">
-<meta property="article:tag" content="Pyfhel">
 <meta property="article:tag" content="同态加密">
+<meta property="article:tag" content="Pyfhel">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://ci-shang.github.io/Pyfhel/Pyfhel%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85/">
@@ -307,7 +307,8 @@
 <li><p>查看gcc版本，这里以gcc14版本为例。<code>gcc-14 -v</code></p>
 </li>
 <li><p>macOS用户还必须设置<strong>多个环境变量</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Brew installs GCC in /opt/homebrew/bin on Apple Silicon and /usr/local/bin on Intel.</span></span><br><span class="line"><span class="keyword">if</span> [[ $(uname -m) = <span class="string">&quot;arm64&quot;</span> ]]; then BREW_GCC_PATH=<span class="string">&quot;/opt/homebrew/bin&quot;</span>; <span class="keyword">else</span> BREW_GCC_PATH=<span class="string">&quot;/usr/local/bin&quot;</span>; fi</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set CC/CXX environment variables to the most recent GNU GCC</span></span><br><span class="line">export CC=<span class="string">&quot;$BREW_GCC_PATH/$(ls $BREW_GCC_PATH | grep ^gcc-14 | sort -V -r | head -n 1)&quot;</span></span><br><span class="line">export CXX=<span class="string">&quot;$BREW_GCC_PATH/$(ls $BREW_GCC_PATH | grep ^g++-14 | sort -V -r | head -n 1)&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set MACOSX_DEPLOYMENT_TARGET to avoid version mismatch warnings</span></span><br><span class="line">echo <span class="string">&quot;MACOSX_DEPLOYMENT_TARGET=$(sw_vers -productVersion)&quot;</span> &gt;&gt; $GITHUB_ENV</span><br><span class="line">echo <span class="string">&quot;MACOSX_DEPLOYMENT_TARGET=$&#123;&#123; env.MACOSX_DEPLOYMENT_TARGET &#125;&#125;&quot;</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Brew installs GCC in /opt/homebrew/bin on Apple Silicon and /usr/local/bin on Intel.</span></span><br><span class="line"><span class="keyword">if</span> [[ $(uname -m) = <span class="string">&quot;arm64&quot;</span> ]]; then BREW_GCC_PATH=<span class="string">&quot;/opt/homebrew/bin&quot;</span>; <span class="keyword">else</span> BREW_GCC_PATH=<span class="string">&quot;/usr/local/bin&quot;</span>; fi</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set CC/CXX environment variables to the most recent GNU GCC</span></span><br><span class="line">export CC=<span class="string">&quot;$BREW_GCC_PATH/$(ls $BREW_GCC_PATH | grep ^gcc-14 | sort -V -r | head -n 1)&quot;</span></span><br><span class="line">export CXX=<span class="string">&quot;$BREW_GCC_PATH/$(ls $BREW_GCC_PATH | grep ^g++-14 | sort -V -r | head -n 1)&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set MACOSX_DEPLOYMENT_TARGET to avoid version mismatch warnings</span></span><br><span class="line">echo <span class="string">&quot;MACOSX_DEPLOYMENT_TARGET=$(sw_vers -productVersion)&quot;</span> &gt;&gt; $GITHUB_ENV</span><br><span class="line">echo <span class="string">&quot;MACOSX_DEPLOYMENT_TARGET=$&#123;&#123; env.MACOSX_DEPLOYMENT_TARGET &#125;&#125;&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <h3 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h3><ul>
 <li><p><strong>注意：</strong>不要使用系统自带的python，因为它可能是使用clang编译的</p>
@@ -318,7 +319,8 @@
 <li><p><code>pip install Pyfhel</code></p>
 </li>
 <li><p>安装最新版本</p>
-<p><code>git clone --recursive https://github.com/ibarrond/Pyfhel.git pip install .</code></p>
+<p><code>git clone --recursive https://github.com/ibarrond/Pyfhel.git
+pip install .</code></p>
 </li>
 <li><p>如果安装过程中有类似的报错<code>[Config.h - No such file or directory]</code>，可能系统中缺少<strong>libconfig-dev</strong>包</p>
 <p><code>brew install libconfig-dev</code></p>
@@ -380,8 +382,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Pyfhel/" rel="tag"><i class="fa fa-tag"></i> Pyfhel</a>
               <a href="/tags/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/" rel="tag"><i class="fa fa-tag"></i> 同态加密</a>
+              <a href="/tags/Pyfhel/" rel="tag"><i class="fa fa-tag"></i> Pyfhel</a>
           </div>
 
         
@@ -535,7 +537,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">16k</span>
+    <span title="站点总字数">15k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
