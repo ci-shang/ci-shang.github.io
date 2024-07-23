@@ -268,7 +268,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.3k</span>
+              <span>3.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -758,6 +758,94 @@
 </tbody>
 </table>
 </div>
+<h2 id="空格与换行"><a href="#空格与换行" class="headerlink" title="空格与换行"></a>空格与换行</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">LaTex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">双空格</td>
+<td style="text-align:center">$a \qquad b$</td>
+<td style="text-align:center"><code>a \qquad b</code></td>
+</tr>
+<tr>
+<td style="text-align:center">单空格</td>
+<td style="text-align:center">$a \quad b$</td>
+<td style="text-align:center"><code>a \quad b</code></td>
+</tr>
+<tr>
+<td style="text-align:center">字符空格</td>
+<td style="text-align:center">$a\ b$</td>
+<td style="text-align:center"><code>a\ b</code></td>
+</tr>
+<tr>
+<td style="text-align:center">大空格</td>
+<td style="text-align:center">a  ba\;b<em>a**b</em></td>
+<td style="text-align:center"><code>a\;b</code></td>
+</tr>
+<tr>
+<td style="text-align:center">小空格</td>
+<td style="text-align:center">a ba\,b<em>a**b</em></td>
+<td style="text-align:center"><code>a\,b</code></td>
+</tr>
+<tr>
+<td style="text-align:center">极小空格</td>
+<td style="text-align:center">abab<em>ab</em></td>
+<td style="text-align:center"><code>ab</code></td>
+</tr>
+<tr>
+<td style="text-align:center">极小空格</td>
+<td style="text-align:center">aba b<em>ab</em></td>
+<td style="text-align:center"><code>a b</code></td>
+</tr>
+<tr>
+<td style="text-align:center">无空格</td>
+<td style="text-align:center">ab\mathit{ab}<em>ab</em></td>
+<td style="text-align:center"><code>\mathit&#123;ab&#125;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&lt;!DOCTYPE html&gt;</p>
+<p><html lang="zh-CN"><br>  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>简单表格示例</title>
+  </head><br>  <body><br>    <h2>学生成绩</h2></p>
+<div>
+<table border=0 cellpadding=2 cellspacing=8 width=680>
+<thead>
+        <tr>
+          <th>学生编号</th>
+          <th>姓名</th>
+          <th>数学成绩</th>
+          <th>科学成绩</th>
+          <th>英语成绩</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>张三</td>
+          <td>90</td>
+          <td>85</td>
+          <td>88</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>李四</td>
+          <td>95</td>
+          <td>92</td>
+          <td>90</td>
+        </tr>
+  </table>
+</div>
+
 
     </div>
 
@@ -884,7 +972,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%9D%E7%95%99%E5%AD%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">保留字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E5%9E%8B%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.</span> <span class="nav-text">大型运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%AD%E5%A4%B4%E7%AC%A6%E5%8F%B7"><span class="nav-number">3.</span> <span class="nav-text">箭头符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%AC%E5%8F%B7"><span class="nav-number">4.</span> <span class="nav-text">括号</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%9D%E7%95%99%E5%AD%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">保留字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E5%9E%8B%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.</span> <span class="nav-text">大型运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%AD%E5%A4%B4%E7%AC%A6%E5%8F%B7"><span class="nav-number">3.</span> <span class="nav-text">箭头符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%AC%E5%8F%B7"><span class="nav-number">4.</span> <span class="nav-text">括号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A9%BA%E6%A0%BC%E4%B8%8E%E6%8D%A2%E8%A1%8C"><span class="nav-number">5.</span> <span class="nav-text">空格与换行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">学生成绩</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -966,7 +1054,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">15k</span>
+    <span title="站点总字数">16k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
