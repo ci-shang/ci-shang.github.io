@@ -501,68 +501,220 @@
 </tr>
 <tr>
 <td style="text-align:center">大空格</td>
-<td style="text-align:center">a  ba\;b<em>a**b</em></td>
+<td style="text-align:center">$a\;b$</td>
 <td style="text-align:center"><code>a\;b</code></td>
 </tr>
 <tr>
 <td style="text-align:center">小空格</td>
-<td style="text-align:center">a ba\,b<em>a**b</em></td>
+<td style="text-align:center">$a\,b$</td>
 <td style="text-align:center"><code>a\,b</code></td>
 </tr>
 <tr>
 <td style="text-align:center">极小空格</td>
-<td style="text-align:center">abab<em>ab</em></td>
-<td style="text-align:center"><code>ab</code></td>
-</tr>
-<tr>
-<td style="text-align:center">极小空格</td>
-<td style="text-align:center">aba b<em>ab</em></td>
+<td style="text-align:center">$a b$</td>
 <td style="text-align:center"><code>a b</code></td>
 </tr>
 <tr>
 <td style="text-align:center">无空格</td>
-<td style="text-align:center">ab\mathit{ab}<em>ab</em></td>
+<td style="text-align:center">$\mathit{ab}$</td>
 <td style="text-align:center"><code>\mathit&#123;ab&#125;</code></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>&lt;!DOCTYPE html&gt;</p>
-<p><html lang="zh-CN"><br>  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>简单表格示例</title>
-  </head><br>  <body><br>    <h2>学生成绩</h2></p>
-<div>
-<table border=0 cellpadding=2 cellspacing=8 width=680>
+<h2 id="上下标"><a href="#上下标" class="headerlink" title="上下标"></a>上下标</h2><div class="table-container">
+<table>
 <thead>
-        <tr>
-          <th>学生编号</th>
-          <th>姓名</th>
-          <th>数学成绩</th>
-          <th>科学成绩</th>
-          <th>英语成绩</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>张三</td>
-          <td>90</td>
-          <td>85</td>
-          <td>88</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>李四</td>
-          <td>95</td>
-          <td>92</td>
-          <td>90</td>
-        </tr>
-  </table>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">LaTex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">上标</td>
+<td style="text-align:center">$a^2$</td>
+<td style="text-align:center"><code>a^2</code></td>
+</tr>
+<tr>
+<td style="text-align:center">下标</td>
+<td style="text-align:center">$a_2$</td>
+<td style="text-align:center"><code>a_2</code></td>
+</tr>
+<tr>
+<td style="text-align:center">组合</td>
+<td style="text-align:center">$a_{i,j}$</td>
+<td style="text-align:center"><code>a_&#123;i,j&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">上下标</td>
+<td style="text-align:center">$x_3^2$ $C_{5}^{2}$</td>
+<td style="text-align:center"><code>x_3^2</code> <code>C_&#123;5&#125;^&#123;2&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">上标的上标</td>
+<td style="text-align:center">$a^{b^c}$</td>
+<td style="text-align:center"><code>a^&#123;b^c&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">混合标识</td>
+<td style="text-align:center">$\alpha_{m+n}^{2}$</td>
+<td style="text-align:center"><code>\alpha_&#123;m+n&#125;^&#123;2&#125;</code></td>
+</tr>
+</tbody>
+</table>
 </div>
-
-]]></content>
+<h2 id="其他上下标"><a href="#其他上下标" class="headerlink" title="其他上下标"></a>其他上下标</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">LaTex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">导数点</td>
+<td style="text-align:center">$\dot{x}, \ddot{x}$</td>
+<td style="text-align:center"><code>\dot&#123;x&#125;, \ddot&#123;x&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">向量</td>
+<td style="text-align:center">$\vec{\alpha}$,  $\overrightarrow{AB}$, $\overleftarrow{AB}$,  $\hat{c}$ , $\widehat{def}$</td>
+<td style="text-align:center"><code>\vec&#123;\alpha&#125;</code> <code>\overrightarrow&#123;AB&#125;</code> <code>\overleftarrow&#123;AB&#125;</code> <code>\hat&#123;c&#125;</code> <code>\widehat&#123;def&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">上波浪</td>
+<td style="text-align:center">$\tilde{a}$, $\widetilde{a}$</td>
+<td style="text-align:center"><code>\tilde&#123;a&#125;</code> <code>\widetilde&#123;a&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">上划线</td>
+<td style="text-align:center">$\bar{b}$, $\overline{abc}$</td>
+<td style="text-align:center"><code>\bar&#123;b&#125;</code> <code>\overline&#123;abc&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">下划线</td>
+<td style="text-align:center">$\underline{def}$</td>
+<td style="text-align:center"><code>\underline&#123;def&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">底部符号</td>
+<td style="text-align:center">$\underset{i}{max}$</td>
+<td style="text-align:center"><code>\underset&#123;i&#125;&#123;max&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">顶部符号</td>
+<td style="text-align:center">$\overset{\frown}{AB}$</td>
+<td style="text-align:center"><code>\overset&#123;\frown&#125;&#123;AB&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">上括号</td>
+<td style="text-align:center">$\overbrace{ 1+2+\cdots+100 }^{5050}$</td>
+<td style="text-align:center"><code>\overbrace&#123; 1+2+\cdots+100 &#125;^&#123;5050&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">下括号</td>
+<td style="text-align:center">$\underbrace{ a+b+\cdots+z }_{26}$</td>
+<td style="text-align:center"><code>\underbrace&#123; a+b+\cdots+z &#125;_&#123;26&#125;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="模运算"><a href="#模运算" class="headerlink" title="模运算"></a>模运算</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">LaTex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$s_k \equiv 0 \pmod{m}$</td>
+<td style="text-align:center"><code>s_k \equiv 0 \pmod&#123;m&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$a \bmod b$</td>
+<td style="text-align:center"><code>a \bmod b</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\gcd(m, n)$, $\operatorname{lcm}(m, n)$</td>
+<td style="text-align:center"><code>\gcd(m, n), \operatorname&#123;lcm&#125;(m, n)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\mid, \nmid, \shortmid, \nshortmid$</td>
+<td style="text-align:center"><code>\mid, \nmid, \shortmid, \nshortmid</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\nmid$</td>
+<td style="text-align:center"><code>\nmid</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\shortmid$</td>
+<td style="text-align:center"><code>\shortmid</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\nshortmid$</td>
+<td style="text-align:center"><code>\nshortmid</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">LaTex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\begin{matrix}a &amp; b \\ c &amp; d \end{matrix}$</td>
+<td style="text-align:center"><code>\begin&#123;matrix&#125;a &amp; b \\ c &amp; d \end&#123;matrix&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\begin{vmatrix}a &amp; b \\ c &amp; d \end{vmatrix}$</td>
+<td style="text-align:center"><code>\begin&#123;vmatrix&#125;a &amp; b \\ c &amp; d \end&#123;vmatrix&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\begin{Vmatrix}a &amp; b \\ c &amp; d \end{Vmatrix}$</td>
+<td style="text-align:center"><code>\begin&#123;Vmatrix&#125;a &amp; b \\ c &amp; d \end&#123;Vmatrix&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\begin{bmatrix}a &amp; b \\ c &amp; d \end{bmatrix}$</td>
+<td style="text-align:center"><code>\begin&#123;bmatrix&#125;a &amp; b \\ c &amp; d \end&#123;bmatrix&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\begin{Bmatrix}a &amp; b \\ c &amp; d \end{Bmatrix}$</td>
+<td style="text-align:center"><code>\begin&#123;Bmatrix&#125;a &amp; b \\ c &amp; d \end&#123;Bmatrix&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\begin{pmatrix}a &amp; b \\ c &amp; d \end{pmatrix}$</td>
+<td style="text-align:center"><code>\begin&#123;pmatrix&#125;a &amp; b \\ c &amp; d \end&#123;pmatrix&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\begin{smallmatrix}a &amp; b \\ c &amp; d\end{smallmatrix}$</td>
+<td style="text-align:center"><code>\begin&#123;smallmatrix&#125;a &amp; b \\ c &amp; d\end&#123;smallmatrix&#125;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="数组与表格"><a href="#数组与表格" class="headerlink" title="数组与表格"></a>数组与表格</h2><p><code>c</code>, <code>l</code>, <code>r</code> 分别代表<code>居中</code>、<code>左对齐</code>及<code>右对齐</code>。若需要插入垂直分割线，在定义式中插入 <code>|</code> ，若要插入水平分割线，在下一行输入前插入 <code>\hline</code></p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;array&#125;&#123;c|l|c|r&#125;</span><br><span class="line"><span class="keyword">\hline</span></span><br><span class="line">n <span class="built_in">&amp;</span> a <span class="built_in">&amp;</span> b <span class="built_in">&amp;</span> c <span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\hline</span></span><br><span class="line">1 <span class="built_in">&amp;</span> 0.24 <span class="built_in">&amp;</span> 1 <span class="built_in">&amp;</span> 125 <span class="keyword">\\</span></span><br><span class="line">2 <span class="built_in">&amp;</span> -1 <span class="built_in">&amp;</span> 189 <span class="built_in">&amp;</span> -8 <span class="keyword">\\</span></span><br><span class="line">3 <span class="built_in">&amp;</span> -20 <span class="built_in">&amp;</span> 2000 <span class="built_in">&amp;</span> 1+10i <span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\hline</span></span><br><span class="line"><span class="keyword">\end</span>&#123;array&#125;</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+\begin{array}{c|l|c|r}
+\hline
+n & a & b & c \\
+\hline
+1 & 0.24 & 1 & 125 \\
+2 & -1 & 189 & -8 \\
+3 & -20 & 2000 & 1+10i \\
+\hline
+\end{array}</script>]]></content>
       <categories>
         <category>Latex</category>
       </categories>
