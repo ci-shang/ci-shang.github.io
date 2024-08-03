@@ -211,9 +211,10 @@ D_k(g(c_1,c_4)) = g(m_1,m_4)</script></li>
       </tags>
   </entry>
   <entry>
-    <title>LaTex符号笔记</title>
+    <title>LaTex数学笔记2</title>
     <url>/LaTex/LaTex%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B02/</url>
-    <content><![CDATA[<h2 id="二元关系符"><a href="#二元关系符" class="headerlink" title="二元关系符"></a>二元关系符</h2><div class="table-container">
+    <content><![CDATA[<p>简洁的LaTex数学笔记后续。</p>
+<h2 id="二元关系符"><a href="#二元关系符" class="headerlink" title="二元关系符"></a>二元关系符</h2><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1261,7 +1262,7 @@ pip install .</code></p>
   <entry>
     <title>LaTex数学笔记1</title>
     <url>/LaTex/LaTex%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B01/</url>
-    <content><![CDATA[<p>这是一个简洁的Latex公式笔记。</p>
+    <content><![CDATA[<p>这是一个简洁的LaTex数学笔记。</p>
 <h2 id="保留字符"><a href="#保留字符" class="headerlink" title="保留字符"></a>保留字符</h2><div class="table-container">
 <table>
 <thead>
