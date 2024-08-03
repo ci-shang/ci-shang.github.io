@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="lyEkME-RTL_pFLCPNGfXdiPOILQzKT6FWEAtiQ7k5ZI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ci-shang.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="二元关系符">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LaTex符号笔记">
+<meta property="og:url" content="https://ci-shang.github.io/LaTex/LaTex%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B02/index.html">
+<meta property="og:site_name" content="cisBlog">
+<meta property="og:description" content="二元关系符">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-08-03T01:59:46.000Z">
+<meta property="article:modified_time" content="2024-08-03T01:59:46.000Z">
+<meta property="article:author" content="Ci Shang">
+<meta property="article:tag" content="LaTex">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://ci-shang.github.io/LaTex/LaTex%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B02/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <title>LaTex符号笔记 | cisBlog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">cisBlog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-notes">
+
+    <a href="/notes/" rel="section"><i class="fa fa-sticky-note fa-fw"></i>札记 & 留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">6</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ci-shang.github.io/LaTex/LaTex%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/site/avatar.png">
+      <meta itemprop="name" content="Ci Shang">
+      <meta itemprop="description" content="世上无难事，只要肯登攀">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cisBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LaTex符号笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-08-03 09:59:46" itemprop="dateCreated datePublished" datetime="2024-08-03T09:59:46+08:00">2024-08-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LaTex/" itemprop="url" rel="index"><span itemprop="name">LaTex</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/LaTex/LaTex%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B02/" class="post-meta-item leancloud_visitors" data-flag-title="LaTex符号笔记" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/LaTex/LaTex%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B02/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/LaTex/LaTex%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B02/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="二元关系符"><a href="#二元关系符" class="headerlink" title="二元关系符"></a>二元关系符</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">LaTex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">=</td>
+<td style="text-align:center"><code>=</code></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">$\ne$</td>
+<td style="text-align:center"><code>\ne</code></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">$\neq$</td>
+<td style="text-align:center"><code>\neq</code></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">$\equiv$</td>
+<td style="text-align:center"><code>\equiv</code></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">$\not\equiv$</td>
+<td style="text-align:center"><code>\not\equiv</code></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">$\doteq$</td>
+<td style="text-align:center"><code>\doteq</code></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">$\doteqdot$</td>
+<td style="text-align:center"><code>\doteqdot</code></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">$\overset{\underset{\mathrm{def}}{}}{=}$</td>
+<td style="text-align:center"><code>\overset&#123;\underset&#123;\mathrm&#123;def&#125;&#125;&#123;&#125;&#125;&#123;=&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">$:=$</td>
+<td style="text-align:center"><code>:=</code></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">$\sim$</td>
+<td style="text-align:center"><code>\sim</code></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">$\nsim$</td>
+<td style="text-align:center"><code>\nsim</code></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">$\backsim$</td>
+<td style="text-align:center"><code>\backsim</code></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">$\simeq$</td>
+<td style="text-align:center"><code>\simeq</code></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">$\backsimeq$</td>
+<td style="text-align:center"><code>\backsimeq</code></td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">$\cong$</td>
+<td style="text-align:center"><code>\cong</code></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">$\ncong$</td>
+<td style="text-align:center"><code>\ncong</code></td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center">$\approx$</td>
+<td style="text-align:center"><code>\approx</code></td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:center">$\propto$</td>
+<td style="text-align:center"><code>\propto</code></td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:center">$&lt;$</td>
+<td style="text-align:center"><code>&lt;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:center">$\ll$</td>
+<td style="text-align:center"><code>\ll</code></td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:center">$&gt;$</td>
+<td style="text-align:center"><code>&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:center">$\gg$</td>
+<td style="text-align:center"><code>\gg</code></td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:center">$\le$</td>
+<td style="text-align:center"><code>\le</code></td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td style="text-align:center">$\ge$</td>
+<td style="text-align:center"><code>\ge</code></td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:center">$\gtrdot$</td>
+<td style="text-align:center"><code>\gtrdot</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="二元运算符"><a href="#二元运算符" class="headerlink" title="二元运算符"></a>二元运算符</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">LaTex</th>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">LaTex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">$+$</td>
+<td style="text-align:center"><code>+</code></td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">$\bullet$</td>
+<td style="text-align:center"><code>\bullet</code></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">$-$</td>
+<td style="text-align:center"><code>-</code></td>
+<td style="text-align:center">21</td>
+<td style="text-align:center">$\oplus$</td>
+<td style="text-align:center"><code>\oplus</code></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">$\times$</td>
+<td style="text-align:center"><code>\times</code></td>
+<td style="text-align:center">22</td>
+<td style="text-align:center">$\ominus$</td>
+<td style="text-align:center"><code>\ominus</code></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">$\div$</td>
+<td style="text-align:center"><code>\div</code></td>
+<td style="text-align:center">23</td>
+<td style="text-align:center">$\odot$</td>
+<td style="text-align:center"><code>\odot</code></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">$\pm$</td>
+<td style="text-align:center"><code>\pm</code></td>
+<td style="text-align:center">24</td>
+<td style="text-align:center">$\oslash$</td>
+<td style="text-align:center"><code>\oslash</code></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">$\mp$</td>
+<td style="text-align:center"><code>\mp</code></td>
+<td style="text-align:center">25</td>
+<td style="text-align:center">$\otimes$</td>
+<td style="text-align:center"><code>\otimes</code></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">$\triangleleft$</td>
+<td style="text-align:center"><code>\triangleleft</code></td>
+<td style="text-align:center">26</td>
+<td style="text-align:center">$\bigcirc$</td>
+<td style="text-align:center"><code>\bigcirc</code></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">$\triangleright$</td>
+<td style="text-align:center"><code>\triangleright</code></td>
+<td style="text-align:center">27</td>
+<td style="text-align:center">$\diamond$</td>
+<td style="text-align:center"><code>\diamond</code></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">$\cdot$</td>
+<td style="text-align:center"><code>\cdot</code></td>
+<td style="text-align:center">28</td>
+<td style="text-align:center">$\uplus$</td>
+<td style="text-align:center"><code>\uplus</code></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">$\setminus$</td>
+<td style="text-align:center"><code>\setminus</code></td>
+<td style="text-align:center">29</td>
+<td style="text-align:center">$\bigtriangleup$</td>
+<td style="text-align:center"><code>\bigtriangleup</code></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">$\star$</td>
+<td style="text-align:center"><code>\star</code></td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">$\bigtriangledown$</td>
+<td style="text-align:center"><code>\bigtriangledown</code></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">$\ast$</td>
+<td style="text-align:center"><code>\ast</code></td>
+<td style="text-align:center">31</td>
+<td style="text-align:center">$\lhd$</td>
+<td style="text-align:center"><code>\lhd</code></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">$\cup$</td>
+<td style="text-align:center"><code>\cup</code></td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">$\rhd$</td>
+<td style="text-align:center"><code>\rhd</code></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">$\cap$</td>
+<td style="text-align:center"><code>\cap</code></td>
+<td style="text-align:center">33</td>
+<td style="text-align:center">$\unlhd$</td>
+<td style="text-align:center"><code>\unlhd</code></td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">$\sqcup$</td>
+<td style="text-align:center"><code>\sqcup</code></td>
+<td style="text-align:center">34</td>
+<td style="text-align:center">$\unrhd$</td>
+<td style="text-align:center"><code>\unrhd</code></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">$\sqcap$</td>
+<td style="text-align:center"><code>\sqcap</code></td>
+<td style="text-align:center">35</td>
+<td style="text-align:center">$\amalg$</td>
+<td style="text-align:center"><code>\amalg</code></td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center">$\vee$</td>
+<td style="text-align:center"><code>\vee</code></td>
+<td style="text-align:center">36</td>
+<td style="text-align:center">$\wr$</td>
+<td style="text-align:center"><code>\wr</code></td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:center">$\wedge$</td>
+<td style="text-align:center"><code>\wedge</code></td>
+<td style="text-align:center">37</td>
+<td style="text-align:center">$\dagger$</td>
+<td style="text-align:center"><code>\dagger</code></td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:center">$\circ$</td>
+<td style="text-align:center"><code>\circ</code></td>
+<td style="text-align:center">38</td>
+<td style="text-align:center">$\ddagger$</td>
+<td style="text-align:center"><code>\ddagger</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="方程与方程组"><a href="#方程与方程组" class="headerlink" title="方程与方程组"></a>方程与方程组</h2><p>在公式的每一行中插入 <code>&amp;</code> 来指定需要对齐的内容，在每行结尾处使用 <code>\\</code> 换行。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;cases&#125;</span><br><span class="line">3x + 5y + z <span class="keyword">\\</span></span><br><span class="line">7x - 2y + 4z <span class="keyword">\\</span></span><br><span class="line">-6x + 3y + 2z</span><br><span class="line"><span class="keyword">\end</span>&#123;cases&#125;</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+\begin{cases}
+3x + 5y + z \\
+7x - 2y + 4z \\
+-6x + 3y + 2z
+\end{cases}</script><h3 id="条件表达式"><a href="#条件表达式" class="headerlink" title="条件表达式"></a>条件表达式</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">f(n) =</span><br><span class="line"><span class="keyword">\begin</span>&#123;cases&#125;</span><br><span class="line">n/2, <span class="built_in">&amp;</span> <span class="keyword">\text</span>&#123;if &#125; n <span class="keyword">\text</span>&#123; is even&#125; <span class="keyword">\\</span></span><br><span class="line">3n+1, <span class="built_in">&amp;</span> <span class="keyword">\text</span>&#123;if &#125; n <span class="keyword">\text</span>&#123; is odd&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;cases&#125;</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+f(n) =
+\begin{cases}
+n/2, & \text{if } n \text{ is even} \\
+3n+1, & \text{if } n \text{ is odd}
+\end{cases}</script><h3 id="多行等式"><a href="#多行等式" class="headerlink" title="多行等式"></a>多行等式</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;align*&#125;</span><br><span class="line">f(x) <span class="built_in">&amp;</span> = (a+b)<span class="built_in">^</span>2<span class="keyword">\\</span></span><br><span class="line">     <span class="built_in">&amp;</span> = a<span class="built_in">^</span>2+2ab+b<span class="built_in">^</span>2</span><br><span class="line"><span class="keyword">\end</span>&#123;align*&#125;</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+\begin{align*}
+f(x) & = (a+b)^2\\
+& = a^2+2ab+b^2
+\end{align*}</script><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;array&#125;&#123;lcl&#125;</span><br><span class="line">z <span class="built_in">&amp;</span> = <span class="built_in">&amp;</span> a <span class="keyword">\\</span></span><br><span class="line">f(x,y,z) <span class="built_in">&amp;</span> = <span class="built_in">&amp;</span> x + y + z</span><br><span class="line"><span class="keyword">\end</span>&#123;array&#125;</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+\begin{array}{lcl}
+z & = & a \\
+f(x,y,z) & = & x + y + z
+\end{array}</script><h2 id="分数"><a href="#分数" class="headerlink" title="分数"></a>分数</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">LaTex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">分数</td>
+<td style="text-align:center">$\frac{5}{2}$</td>
+<td style="text-align:center"><code>\frac&#123;5&#125;&#123;2&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">小型分数</td>
+<td style="text-align:center">$\tfrac{5}{2}$</td>
+<td style="text-align:center"><code>\tfrac&#123;5&#125;&#123;2&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">大型分数（不嵌套）</td>
+<td style="text-align:center">$\dfrac{1}{a + \dfrac{2}{b + \dfrac{3}{c}}}$</td>
+<td style="text-align:center"><code>\dfrac&#123;1&#125;&#123;a + \dfrac&#123;2&#125;&#123;b + \dfrac&#123;3&#125;&#123;c&#125;&#125;&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">大型分数（嵌套）</td>
+<td style="text-align:center">$\cfrac{1}{a + \cfrac{2}{b + \cfrac{3}{c}}}$</td>
+<td style="text-align:center"><code>\cfrac&#123;1&#125;&#123;a + \cfrac&#123;2&#125;&#123;b + \cfrac&#123;3&#125;&#123;c&#125;&#125;&#125;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="根式"><a href="#根式" class="headerlink" title="根式"></a>根式</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">LaTex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\surd$</td>
+<td style="text-align:center"><code>\surd</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\sqrt{\alpha}$</td>
+<td style="text-align:center"><code>\sqrt&#123;\alpha&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\sqrt[n]{\alpha}$</td>
+<td style="text-align:center"><code>\sqrt[n]&#123;\alpha&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\sqrt[3]{\frac{x^3+y^3}{2}}$</td>
+<td style="text-align:center"><code>\sqrt[3]&#123;\frac&#123;x^3+y^3&#125;&#123;2&#125;&#125;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="积分"><a href="#积分" class="headerlink" title="积分"></a>积分</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">LaTex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">积分</td>
+<td style="text-align:center">$\int$</td>
+<td style="text-align:center"><code>\int</code></td>
+</tr>
+<tr>
+<td style="text-align:center">双重积分</td>
+<td style="text-align:center">$\iint$</td>
+<td style="text-align:center"><code>\iint</code></td>
+</tr>
+<tr>
+<td style="text-align:center">三重积分</td>
+<td style="text-align:center">$\iiint$</td>
+<td style="text-align:center"><code>\iiint</code></td>
+</tr>
+<tr>
+<td style="text-align:center">环路积分</td>
+<td style="text-align:center">$\oint$</td>
+<td style="text-align:center"><code>\oint</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="微分与导数"><a href="#微分与导数" class="headerlink" title="微分与导数"></a>微分与导数</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">LaTex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$dt$</td>
+<td style="text-align:center"><code>dt</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\mathrm{d}t$</td>
+<td style="text-align:center"><code>\mathrm&#123;d&#125;t</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\partial t$</td>
+<td style="text-align:center"><code>\partial t</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\nabla\psi$</td>
+<td style="text-align:center"><code>\nabla\psi</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\mathrm{d}y/\mathrm{d}x$</td>
+<td style="text-align:center"><code>\mathrm&#123;d&#125;y/\mathrm&#123;d&#125;x</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\frac{dy}{dx}$</td>
+<td style="text-align:center"><code>\frac&#123;dy&#125;&#123;dx&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\prime$</td>
+<td style="text-align:center"><code>\prime</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\backprime$</td>
+<td style="text-align:center"><code>\backprime</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$f’$</td>
+<td style="text-align:center"><code>f&#39;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$f^\prime$</td>
+<td style="text-align:center"><code>f^\prime</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$f’’$</td>
+<td style="text-align:center"><code>f&#39;&#39;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$f^{(3)}$</td>
+<td style="text-align:center"><code>f^&#123;(3)&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">$\dot{x}, \ddot{y}$</td>
+<td style="text-align:center"><code>\dot&#123;x&#125;, \ddot&#123;y&#125;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="逻辑符号"><a href="#逻辑符号" class="headerlink" title="逻辑符号"></a>逻辑符号</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">LaTex</th>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">LaTex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">$\forall$</td>
+<td style="text-align:center"><code>\forall</code></td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">$\neg$</td>
+<td style="text-align:center"><code>\neg</code></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">$\exists$</td>
+<td style="text-align:center"><code>\exists</code></td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">$⁡\not\operatorname{R}$</td>
+<td style="text-align:center"><code>\not\operatorname&#123;R&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">$\nexists$</td>
+<td style="text-align:center"><code>\nexists</code></td>
+<td style="text-align:center">17</td>
+<td style="text-align:center">$\bot$</td>
+<td style="text-align:center"><code>\bot</code></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">$\therefore$</td>
+<td style="text-align:center"><code>\therefore</code></td>
+<td style="text-align:center">18</td>
+<td style="text-align:center">$\top$</td>
+<td style="text-align:center"><code>\top</code></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">$\because$</td>
+<td style="text-align:center"><code>\because</code></td>
+<td style="text-align:center">19</td>
+<td style="text-align:center">$\vdash$</td>
+<td style="text-align:center"><code>\vdash</code></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">$\And$</td>
+<td style="text-align:center"><code>\And</code></td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">$\dashv$</td>
+<td style="text-align:center"><code>\dashv</code></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">$\lor$</td>
+<td style="text-align:center"><code>\lor</code></td>
+<td style="text-align:center">21</td>
+<td style="text-align:center">$\ulcorner$</td>
+<td style="text-align:center"><code>\ulcorner</code></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">$\vee$</td>
+<td style="text-align:center"><code>\vee</code></td>
+<td style="text-align:center">22</td>
+<td style="text-align:center">$\urcorner$</td>
+<td style="text-align:center"><code>\urcorner</code></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">$\curlyvee$</td>
+<td style="text-align:center"><code>\curlyvee</code></td>
+<td style="text-align:center">23</td>
+<td style="text-align:center">$\llcorner$</td>
+<td style="text-align:center"><code>\llcorner</code></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">$\bigvee$</td>
+<td style="text-align:center"><code>\bigvee</code></td>
+<td style="text-align:center">24</td>
+<td style="text-align:center">$\lrcorner$</td>
+<td style="text-align:center"><code>\lrcorner</code></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">$\land$</td>
+<td style="text-align:center"><code>\land</code></td>
+<td style="text-align:center">25</td>
+<td style="text-align:center">$\bar{q}$</td>
+<td style="text-align:center"><code>\bar&#123;q&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">$\wedge$</td>
+<td style="text-align:center"><code>\wedge</code></td>
+<td style="text-align:center">26</td>
+<td style="text-align:center">$\bar{abc}$</td>
+<td style="text-align:center"><code>\bar&#123;abc&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">$\curlywedge$</td>
+<td style="text-align:center"><code>\curlywedge</code></td>
+<td style="text-align:center">27</td>
+<td style="text-align:center">$\overline{q}$</td>
+<td style="text-align:center"><code>\overline&#123;q&#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">$\bigwedge$</td>
+<td style="text-align:center"><code>\bigwedge</code></td>
+<td style="text-align:center">28</td>
+<td style="text-align:center">$\overline{abc}$</td>
+<td style="text-align:center"><code>\overline&#123;abc&#125;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="希腊字母"><a href="#希腊字母" class="headerlink" title="希腊字母"></a>希腊字母</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">字符</th>
+<th style="text-align:center">LaTeX</th>
+<th style="text-align:center">首字母大写</th>
+<th style="text-align:center">LaTeX</th>
+<th style="text-align:center">使用 var 前缀</th>
+<th style="text-align:center">LaTeX</th>
+<th style="text-align:center">读音</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">$\alpha$</td>
+<td style="text-align:center"><code>\alpha</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">/ˈælfə/</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">$\beta$</td>
+<td style="text-align:center"><code>\beta</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">/ˈbeɪtə/</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">$\gamma$</td>
+<td style="text-align:center"><code>\gamma</code></td>
+<td style="text-align:center">$\Gamma$</td>
+<td style="text-align:center"><code>\Gamma</code></td>
+<td style="text-align:center">$\varGamma$</td>
+<td style="text-align:center"><code>\varGamma</code></td>
+<td style="text-align:center">/ˈɡæmə/</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">$\delta$</td>
+<td style="text-align:center"><code>\delta</code></td>
+<td style="text-align:center">$\Delta$</td>
+<td style="text-align:center"><code>\Delta</code></td>
+<td style="text-align:center">$\varDelta$</td>
+<td style="text-align:center"><code>\varDelta</code></td>
+<td style="text-align:center">/ˈdɛltə/</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">$\epsilon$</td>
+<td style="text-align:center"><code>\epsilon</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">$\varepsilon$</td>
+<td style="text-align:center"><code>\varepsilon</code></td>
+<td style="text-align:center">/ˈɛpsɪlɒn/</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">$\zeta$</td>
+<td style="text-align:center"><code>\zeta</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">/ˈzeɪtə/</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">$\eta$</td>
+<td style="text-align:center"><code>\eta</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">/ˈeɪtə/</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">$\theta$</td>
+<td style="text-align:center"><code>\theta</code></td>
+<td style="text-align:center">$\Theta$</td>
+<td style="text-align:center"><code>\Theta</code></td>
+<td style="text-align:center">$\vartheta, \varTheta$</td>
+<td style="text-align:center"><code>\vartheta</code>, <code>\varTheta</code></td>
+<td style="text-align:center">/ˈθiːtə/</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">$\iota$</td>
+<td style="text-align:center"><code>\iota</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">/aɪˈoʊtə/</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">$\kappa$</td>
+<td style="text-align:center"><code>\kappa</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">$\varkappa$</td>
+<td style="text-align:center"><code>\varkappa</code></td>
+<td style="text-align:center">/ˈkæpə/</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">$\lambda$</td>
+<td style="text-align:center"><code>\lambda</code></td>
+<td style="text-align:center">$\Lambda$</td>
+<td style="text-align:center"><code>\Lambda</code></td>
+<td style="text-align:center">$\varLambda$</td>
+<td style="text-align:center"><code>\varLambda</code></td>
+<td style="text-align:center">/ˈlæmdə/</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">$\mu$</td>
+<td style="text-align:center"><code>\mu</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">/mjuː/</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">$\nu$</td>
+<td style="text-align:center"><code>\nu</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">/njuː/</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">$\xi$</td>
+<td style="text-align:center"><code>\xi</code></td>
+<td style="text-align:center">$\Xi$</td>
+<td style="text-align:center"><code>\Xi</code></td>
+<td style="text-align:center">$\varXi$</td>
+<td style="text-align:center"><code>\varXi</code></td>
+<td style="text-align:center">/zaɪ, ksaɪ/</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">$\pi$</td>
+<td style="text-align:center"><code>\pi</code></td>
+<td style="text-align:center">$\Pi$</td>
+<td style="text-align:center"><code>\Pi</code></td>
+<td style="text-align:center">$\varpi, \varPi$</td>
+<td style="text-align:center"><code>\varpi</code>, <code>\varPi</code></td>
+<td style="text-align:center">/paɪ/</td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">$\rho$</td>
+<td style="text-align:center"><code>\rho</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">$\varrho$</td>
+<td style="text-align:center"><code>\varrho</code></td>
+<td style="text-align:center">/roʊ/</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center">$\sigma$</td>
+<td style="text-align:center"><code>\sigma</code></td>
+<td style="text-align:center">$\Sigma$</td>
+<td style="text-align:center"><code>\Sigma</code></td>
+<td style="text-align:center">$\varsigma, \varSigma$</td>
+<td style="text-align:center"><code>\varsigma</code>, <code>\varSigma</code></td>
+<td style="text-align:center">/ˈsɪɡmə/</td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:center">$\tau$</td>
+<td style="text-align:center"><code>\tau</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">/taʊ, tɔː/</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:center">$\upsilon$</td>
+<td style="text-align:center"><code>\upsilon</code></td>
+<td style="text-align:center">$\Upsilon$</td>
+<td style="text-align:center"><code>\Upsilon</code></td>
+<td style="text-align:center">$\varUpsilon$</td>
+<td style="text-align:center"><code>\varUpsilon</code></td>
+<td style="text-align:center">/ˈʌpsɪlɒn/</td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:center">$\phi$</td>
+<td style="text-align:center"><code>\phi</code></td>
+<td style="text-align:center">$\Phi$</td>
+<td style="text-align:center"><code>\Phi</code></td>
+<td style="text-align:center">$\varphi, \varPhi$</td>
+<td style="text-align:center"><code>\varphi</code>, <code>\varPhi</code></td>
+<td style="text-align:center">/faɪ/</td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:center">$\chi$</td>
+<td style="text-align:center"><code>\chi</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">/kaɪ/</td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:center">$\psi$</td>
+<td style="text-align:center"><code>\psi</code></td>
+<td style="text-align:center">$\Psi$</td>
+<td style="text-align:center"><code>\Psi</code></td>
+<td style="text-align:center">$\varPsi$</td>
+<td style="text-align:center"><code>\varPsi</code></td>
+<td style="text-align:center">/psaɪ/</td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:center">$\omega$</td>
+<td style="text-align:center"><code>\omega</code></td>
+<td style="text-align:center">$\Omega$</td>
+<td style="text-align:center"><code>\Omega</code></td>
+<td style="text-align:center">$\varOmega$</td>
+<td style="text-align:center"><code>\varOmega</code></td>
+<td style="text-align:center">/oʊˈmeɪɡə/</td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td style="text-align:center">$\digamma$</td>
+<td style="text-align:center"><code>\digamma</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">/daɪ’gæmə/</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><h3 id="字体颜色"><a href="#字体颜色" class="headerlink" title="字体颜色"></a>字体颜色</h3><p>使用 <code>\color&#123;options&#125;&#123;math&#125;</code> 调用颜色命令，第 <code>1</code> 个参数为<strong>颜色</strong>，第 <code>2</code> 个参数为<strong>公式内容</strong>：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\color</span>&#123;red&#125;&#123;a<span class="built_in">^</span>2 + 2b + c&#125;</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+\color{red}{a^2 + 2b + c}</script><h3 id="背景颜色"><a href="#背景颜色" class="headerlink" title="背景颜色"></a>背景颜色</h3><p>使用 <code>\colorbox&#123;options&#125;&#123;text&#125;</code> 来调用背景颜色命令，第 1 个参数为<strong>颜色</strong>，第 2 个颜色为<strong>公式内容</strong>：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\colorbox</span>&#123;red&#125;&#123;a + b + c&#125;</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+\colorbox{red}{a + b + c}</script>
+    </div>
+
+    
+    
+    
+<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-flag"></i>　感谢阅读　　　　-------------</div>
+    
+</div>
+
+
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/site/wechatpay.png" alt="Ci Shang 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/site/alipay.png" alt="Ci Shang 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Ci Shang
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://ci-shang.github.io/LaTex/LaTex%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B02/" title="LaTex符号笔记">https://ci-shang.github.io/LaTex/LaTex数学笔记2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/LaTex/" rel="tag"><i class="fa fa-tag"></i> LaTex</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/LaTex/LaTex%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B01/" rel="prev" title="LaTex数学笔记1">
+      <i class="fa fa-chevron-left"></i> LaTex数学笔记1
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%85%83%E5%85%B3%E7%B3%BB%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">二元关系符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.</span> <span class="nav-text">二元运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E7%A8%8B%E4%B8%8E%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="nav-number">3.</span> <span class="nav-text">方程与方程组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">条件表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E8%A1%8C%E7%AD%89%E5%BC%8F"><span class="nav-number">3.2.</span> <span class="nav-text">多行等式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">分数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E5%BC%8F"><span class="nav-number">5.</span> <span class="nav-text">根式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%AF%E5%88%86"><span class="nav-number">6.</span> <span class="nav-text">积分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E5%88%86%E4%B8%8E%E5%AF%BC%E6%95%B0"><span class="nav-number">7.</span> <span class="nav-text">微分与导数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E7%AC%A6%E5%8F%B7"><span class="nav-number">8.</span> <span class="nav-text">逻辑符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D"><span class="nav-number">9.</span> <span class="nav-text">希腊字母</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%9C%E8%89%B2"><span class="nav-number">10.</span> <span class="nav-text">颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E9%A2%9C%E8%89%B2"><span class="nav-number">10.1.</span> <span class="nav-text">字体颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2"><span class="nav-number">10.2.</span> <span class="nav-text">背景颜色</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <a href="/about">
+    <img class="site-author-image" itemprop="image" alt="Ci Shang"
+      src="/images/site/avatar.png">
+    </a>
+  <p class="site-author-name" itemprop="name">Ci Shang</p>
+  <div class="site-description" itemprop="description">世上无难事，只要肯登攀</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NpLXNoYW5n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ci-shang"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9saWFtLnBhZ2U=" title="https:&#x2F;&#x2F;liam.page">Liam Huang</span>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ci Shang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">23k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">21 分钟</span>
+</div>
+<div>
+<!--添加网站运行时间-->
+<span>小破站已经在风雨中度过了</span>
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    function createtime() {
+        const startTime = '07/03/2024 00:00:00',
+            start = new Date(startTime)
+        let mill = new Date() - start,
+            seconds = Math.floor(mill / 1000),
+            mins = Math.floor(seconds / 60),
+            hours = Math.floor(mins / 60),
+            days = Math.floor(hours / 24)
+        const time = {
+            seconds: seconds - mins * 60,
+            mins: mins - hours * 60,
+            hours: hours - days * 24,
+        }
+        for (const k in time) {
+            time[k] = `${time[k]}`.padStart(2, '0')
+        }
+        document.getElementById("timeDate").innerHTML = ` ${days} 天`
+        document.getElementById("times").innerHTML = ` ${time.hours} 小时 ${time.mins} 分 ${time.seconds} 秒`
+    }
+    setInterval(createtime, 500)
+</script>
+</div>
+
+<div>
+    <!--添加总阅读次数-->
+    <div>
+        <span>本站总访问量</span>
+        <span id="site_total_read_count">Loading...</span>
+    </div>
+    <script>
+        async function sleep(ms = 1000) {
+            return await new Promise(resolve => {
+                const timer = setTimeout(() => {
+                    clearTimeout(timer)
+                    return resolve()
+                }, ms)
+            })
+        }
+        async function site_read_count() {
+            const className = 'Counter',
+                query = new AV.Query(className)
+            return query.find()
+                .then(_ => _.map(i => i.attributes.time))
+                .then(_ => _.reduce((a, b) => a + b))
+        }
+        new Promise(resolve => {
+            const timer = setInterval(() => {
+                if (typeof AV !== "undefined") {
+                    clearInterval(timer)
+                    return resolve()
+                }
+            }, 250)
+        })
+            .then(() => site_read_count())
+            .then(_ => {
+                const s = ` ${_} 次`
+                document.getElementById("site_total_read_count").innerHTML = s
+            })
+            .catch(e => console.error(e.message))
+    </script>
+</div>
+
+<script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://ci-shang.github.io/LaTex/LaTex%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B02/',]
+      });
+      });
+  </script>
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'LY6p5ODDkXnS2Y5wW7Ov8GKZ-gzGzoHsz',
+      appKey     : '9jSBkhr7CABx6bdonBgOacIO',
+      placeholder: "写点什么吧...",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://ci-shang.github.io/Latex/Latex%E5%85%AC%E5%BC%8F%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://ci-shang.github.io/LaTex/LaTex%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B01/</loc>
     
-    <lastmod>2024-07-22</lastmod>
+    <lastmod>2024-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ci-shang.github.io/LaTex/LaTex%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B02/</loc>
+    
+    <lastmod>2024-08-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -85,7 +94,7 @@
 
   <url>
     <loc>https://ci-shang.github.io/</loc>
-    <lastmod>2024-07-25</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -93,42 +102,42 @@
   
   <url>
     <loc>https://ci-shang.github.io/tags/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/</loc>
-    <lastmod>2024-07-25</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ci-shang.github.io/tags/BFV/</loc>
-    <lastmod>2024-07-25</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ci-shang.github.io/tags/BGV/</loc>
-    <lastmod>2024-07-25</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ci-shang.github.io/tags/CKKS/</loc>
-    <lastmod>2024-07-25</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ci-shang.github.io/tags/Pyfhel/</loc>
-    <lastmod>2024-07-25</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://ci-shang.github.io/tags/Latex/</loc>
-    <lastmod>2024-07-25</lastmod>
+    <loc>https://ci-shang.github.io/tags/LaTex/</loc>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -137,21 +146,21 @@
   
   <url>
     <loc>https://ci-shang.github.io/categories/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/</loc>
-    <lastmod>2024-07-25</lastmod>
+    <lastmod>2024-08-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ci-shang.github.io/categories/LaTex/</loc>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ci-shang.github.io/categories/Pyfhel/</loc>
-    <lastmod>2024-07-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ci-shang.github.io/categories/Latex/</loc>
-    <lastmod>2024-07-25</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
