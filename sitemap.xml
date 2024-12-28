@@ -94,7 +94,7 @@
 
   <url>
     <loc>https://ci-shang.github.io/</loc>
-    <lastmod>2024-10-21</lastmod>
+    <lastmod>2024-12-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -102,42 +102,42 @@
   
   <url>
     <loc>https://ci-shang.github.io/tags/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/</loc>
-    <lastmod>2024-10-21</lastmod>
+    <lastmod>2024-12-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ci-shang.github.io/tags/BFV/</loc>
-    <lastmod>2024-10-21</lastmod>
+    <lastmod>2024-12-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ci-shang.github.io/tags/BGV/</loc>
-    <lastmod>2024-10-21</lastmod>
+    <lastmod>2024-12-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ci-shang.github.io/tags/CKKS/</loc>
-    <lastmod>2024-10-21</lastmod>
+    <lastmod>2024-12-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ci-shang.github.io/tags/Pyfhel/</loc>
-    <lastmod>2024-10-21</lastmod>
+    <lastmod>2024-12-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ci-shang.github.io/tags/LaTex/</loc>
-    <lastmod>2024-10-21</lastmod>
+    <lastmod>2024-12-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -146,21 +146,21 @@
   
   <url>
     <loc>https://ci-shang.github.io/categories/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/</loc>
-    <lastmod>2024-10-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://ci-shang.github.io/categories/Pyfhel/</loc>
-    <lastmod>2024-10-21</lastmod>
+    <lastmod>2024-12-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://ci-shang.github.io/categories/LaTex/</loc>
-    <lastmod>2024-10-21</lastmod>
+    <lastmod>2024-12-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ci-shang.github.io/categories/Pyfhel/</loc>
+    <lastmod>2024-12-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
